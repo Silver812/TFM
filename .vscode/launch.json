@@ -1,0 +1,61 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "EB vs Random 1",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "Build GameRunner",
+			"args": [
+                "--runs", "1",
+                "--seed", "123",
+                "--timeout", "1",
+                "--enable-logs", "NONE",
+                "EvolutionaryBot",
+                "RandomBot"
+			],
+			"cwd": "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0",
+			"console": "internalConsole",
+			"stopAtEntry": false,
+			"windows": {
+				"program": "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner.exe"
+			},
+			"linux": {
+				"program": "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner"
+			}
+		},
+        {
+            "name": "EB vs Bot 100",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build GameRunner",
+            "args": [
+                "--runs", "100",
+                "--timeout", "1",
+                "--enable-logs", "NONE",
+                "EvolutionaryBot",
+                "MCTSBot"
+            ],
+            "cwd": "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "windows": {
+                "program": "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner.exe"
+            },
+            "linux": {
+                "program": "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner"
+            }
+        },
+		{
+			"name": "Debug trainer",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${workspaceFolder}/Trainer/EB_trainer.py",
+			"console": "integratedTerminal",
+			"justMyCode": true
+		}
+	]
+}

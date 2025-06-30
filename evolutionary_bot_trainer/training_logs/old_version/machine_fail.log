@@ -1,0 +1,742 @@
+Starting training sequence at mié 18 jun 2025 20:53:54 CEST
+Log file: /home/david/SoTAgents/evolutionary_bot_trainer/scripts/../training_logs/training_runs_20250618_205354.log
+
+========================================================================
+STARTING TRAINING: Fixed Mode Training HoF 4 at mié 18 jun 2025 20:53:54 CEST
+PARAMETERS: --num_games 50 --num_threads 10 --num_training 5 --max_evaluations 1000 --pop_size 100  --intra_run_hof_size 3 --evaluation_mode fixed
+========================================================================
+
+--- Configuration Summary ---
+  Number of Training Runs: 5
+  Population Size: 100
+  Max Evaluations per Run: 1000
+  Seed: 123
+  Threads for Parallelism: 10
+  Training Logs Enabled: True
+  Evaluation Mode: fixed
+  Fixed Opponent Bots: PatronFavorsBot, MaxAgentsBot, MaxPrestigeBot
+  Base Games vs Fixed Opponents: 50
+  Hall of Fame Size: 0
+  Turn Timeout: 1 seconds
+  Match Logs: NONE
+  GameRunner Verbose Output: False
+  Use Session Seed for All Matches: False
+  Weight Precision: 8
+  Log Level: INFO
+  Note: Benchmark games often use a multiplier on base game values
+---------------------------
+
+Using GameRunner executable at: /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner
+Master PRNG initialized with seed: 123
+Logging training data to CSV: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250618_205355_s123_mfixed.csv
+
+--- Starting Training Run 1/5 with DETERMINISTIC seed: 123 ---
+Starting Training Run 1/5 (HoF size: 0)
+
+Run 1, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0        100      30.2s        0.0       20.0        0.0        1.7 3.84149710
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1        200      34.4s        1.0       32.0        2.0        4.7 5.70876519
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2        300      39.8s        3.0       32.0        5.0        7.5 6.20722160
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3        400      43.3s        4.0       32.0        7.5       10.2 6.62054378
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        500      46.1s        6.0       32.0       12.0       13.3 6.35196820
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        600      46.4s       10.0       32.0       16.0       17.5 5.92198446
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        700      46.4s       12.0       32.0       19.0       19.9 5.20003846
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        800      47.5s       15.0       32.0       21.0       21.6 4.18897362
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        900      49.2s       18.0       34.0       22.0       23.1 3.69565962
+Intra-Run HoF: Added new champion. Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9       1000      45.8s       20.0       34.0       23.0       24.0 3.28771957
+
+Run 1 completed. Best fitness: 34.00
+Run 1 champion fitness: 34.00
+
+--- Starting Training Run 2/5 with DETERMINISTIC seed: 1123 ---
+Starting Training Run 2/5 (HoF size: 0)
+
+Run 2, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0
+GameRunner process failed with code -6
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0        100      27.6s        0.0       22.0        0.0        1.2 3.53377985
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1        200      33.2s        1.0       23.0        2.0        4.6 5.33164140
+Intra-Run HoF: Added new champion. Size: 2
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2        300   16797.0s        2.0       27.0        4.0        6.5 5.74529373
+Intra-Run HoF: Added new champion. Size: 3
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs PatronFavorsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxAgentsBot' timed out after 1310s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs MaxPrestigeBot' timed out after 1240s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.
+Match 'EvolutionaryBot vs EvolutionaryBot' timed out after 330s.

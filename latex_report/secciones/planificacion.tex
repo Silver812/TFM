@@ -1,0 +1,102 @@
+\chapter{Planificación del proyecto} \label{chap:planificacion}
+
+En este capítulo se detallan los aspectos relacionados con los recursos que se han utilizado para el desarrollo del TFM, así como el ciclo de desarrollo del software que se ha seguido y la distribución temporal utilizada en cada tarea.
+
+\section{Recursos utilizados} \label{sec:recursos_utilizados}
+
+Esta sección presenta los recursos que se han utilizado a lo largo del proyecto, tanto en el apartado del software como en el del hardware.
+
+\subsection{Recursos software} \label{sec:recursos_software}
+
+El proyecto se puede dividir en tres partes: el desarrollo del bot, el ajuste de los pesos y la redacción de la memoria. Afortunadamente, existe una herramienta de código abierto y en constante mejora en la que se pueden realizar todas estas tareas: Visual Studio Code (VSCode). Este entorno de desarrollo es la navaja suiza que ha estado presente en todo el proceso, permitiendo la edición de código, la gestión de versiones, la redacción de la memoria e incluso la conexión mediante interfaz gráfica entre máquinas por SSH. Todo ello gracias a su robusto sistema de extensiones (y la gran comunidad que lo apoya), que permite añadir prácticamente cualquier funcionalidad que se necesite al editor. En el caso de la gestión de versiones, utilizando la integración con Git de VSCode, en todo momento se ha mantenido un repositorio actualizado al día en GitHub, lo que ha permitido la transferencia sencilla del progreso entre las dos máquinas utilizadas durante el desarrollo. Por último, destacar el uso de Zotero como software de gestión de referencias bibliográficas.
+
+\subsection{Recursos hardware} \label{sec:recursos_hardware}
+
+Se han contado con dos ordenadores de trabajo, el primero es el ordenador personal del autor, mientras que el segundo fue proporcionado por el director del proyecto para realizar los experimentos. Estas son sus características principales:
+
+\begin{itemize}
+	\item \textbf{Ordenador personal (Windows 11):}
+	      \begin{itemize}
+		      \item Procesador: AMD Ryzen 7 5800X
+		      \item Memoria RAM: 32 GB DDR5
+		      \item Tarjeta gráfica: NVIDIA GeForce RTX 3070
+	      \end{itemize}
+	\item \textbf{Ordenador de experimentación (Ubuntu 22.04):}
+	      \begin{itemize}
+		      \item Procesador: Intel i9-12900KF
+		      \item Memoria RAM: 126 GB DDR4
+		      \item Tarjeta gráfica: NVIDIA GeForce RTX 4060
+	      \end{itemize}
+\end{itemize}
+
+\section{Ciclo de desarrollo del software} \label{sec:metodologia_desarrollo}
+
+Para el desarrollo de este TFM se ha seguido una metodología ágil a base de ``sprints'' regulares. Desde el 12 de noviembre de 2024, se mantuvieron reuniones de forma constante con el director del proyecto, Pablo García Sánchez, aproximadamente cada 3 semanas. En cada una, primero se procedía a repasar el progreso desde la última reunión, a menudo mostrando en tiempo real las nuevas características o los resultados obtenidos. Sobre esta base, el director proponía mejoras o correcciones a realizar para la próxima ocasión. Luego, entre ambos se decidían los siguientes pasos a seguir, mediante una comunicación abierta, lo que permitía ajustar el rumbo del proyecto según las necesidades y los resultados obtenidos.
+
+Aunque las primeras fases del proyecto se realizaron enteramente en el PC personal del autor, en cuanto se necesitó ejecutar el entrenador, se comenzó a utilizar el ordenador proporcionado por el director para ese propósito. Esto permitió realizar experimentos de forma continuada y sencilla, mientras se seguía trabajando en el código del bot en el PC personal. Así se pudo mantener un flujo de trabajo fluido y eficiente, generando código funcional de forma regular y obteniendo resultados cada vez más desarrollados constantemente.
+
+
+\section{Distribución temporal y cronograma} \label{sec:cronograma}
+
+Para visualizar la distribución temporal de las diferentes tareas realizadas durante el desarrollo de este TFM, se ha elaborado el siguiente diagrama de Gantt (Figura \ref{fig:gantt}).
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[x=1.2cm, y=0.7cm]
+		\begin{ganttchart}[
+				hgrid,
+				vgrid,
+				bar/.style={fill=blue!40},
+				bar height=0.6,
+				bar label font=\footnotesize\color{black!80},
+				group right shift=0,
+				group top shift=0.6,
+				group height=0.3,
+				group/.style={fill=black!30},
+				title label font=\bfseries\footnotesize,
+				title left shift=0,
+				title right shift=0,
+				title height=1,
+				milestone/.style={fill=red, rounded corners=0pt},
+				y unit chart=0.6cm,
+				x unit=1.2cm
+			]{1}{8}
+			\gantttitle{2024}{2}
+			\gantttitle{2025}{6} \\
+			\gantttitle{Nov}{1}
+			\gantttitle{Dic}{1}
+			\gantttitle{Ene}{1}
+			\gantttitle{Feb}{1}
+			\gantttitle{Mar}{1}
+			\gantttitle{Abr}{1}
+			\gantttitle{May}{1}
+			\gantttitle{Jun}{1} \\
+			\ganttbar{Rev. bibliográfica}{1}{2} \\
+			\ganttbar{Estudio de SoT}{2}{4} \\
+			\ganttbar{Desarrollo Bot}{2}{5} \\
+			\ganttbar{Entrenador básico}{4}{5} \\
+			\ganttbar{Pruebas Bot}{5}{5} \\
+			\ganttbar{Script gráficas}{5}{6} \\
+			\ganttbar{Exp. básicos}{6}{6} \\
+			\ganttbar{Entrenador final}{6}{7} \\
+			\ganttbar{Exp. finales}{7}{8} \\
+			\ganttbar[bar/.style={fill=green!40}]{Escritura memoria}{7}{8} \\
+		\end{ganttchart}
+	\end{tikzpicture}
+	\caption{Distribución temporal de las tareas del proyecto}
+	\label{fig:gantt}
+\end{figure}
+
+Como se puede observar en el diagrama, gran parte de las tareas se han desarrollado de forma secuencial, aunque algunos meses, como marzo, han tenido un gran solapamiento. Esto es debido a que los resultados preliminares que proporcionaban ciertas tareas afectaban directamente al desarrollo de otras. La escritura del TFM se concentró en el último mes y medio del proyecto, una vez que se contaba con resultados experimentales suficientes para documentar adecuadamente el trabajo realizado. Este es el contenido de cada una de las tareas:
+\begin{itemize}
+	\item \textbf{Revisión bibliográfica:} se empezó revisando los trabajos ya descritos en la sección \ref{sec:trabajos_relacionados}, además de aprender a jugar a Tales of Tribute y definir el alcance del proyecto.
+	\item \textbf{Estudio de Scripts of Tribute:} en esta etapa se estudió el código fuente de Scripts of Tribute, y se empezó a trabajar con C\# como lenguaje de programación, ya que este nunca había sido utilizado por el autor antes.
+	\item \textbf{Desarrollo del bot:} se diseñó y desarrolló el bot a base de iteraciones de otros bots existentes, así como del trabajo de Pablo et al. \cite{garcia-sanchez_optimizing_2020}.
+	\item \textbf{Pruebas del bot:} primeras pruebas para comprobar que el funcionamiento del bot era correcto.
+	\item \textbf{Entrenador básico:} en un principio, el entrenador solo tenía un modo de funcionamiento básico y estaba peor organizado, pero el ágil desarrollo de esta versión permitió alcanzar resultados rápidamente a modo de prototipo.
+	\item \textbf{Script de gráficas:} se creó un script para generar gráficas que visualizan los resultados de los experimentos realizados, así como la función del entrenador que crea los datasets necesarios para su funcionamiento.
+	\item \textbf{Experimentos básicos:} experimentos iniciales para evaluar si el rendimiento del bot mejoraba con el ajuste de pesos.
+	\item \textbf{Entrenador final:} desarrollo de la versión final del entrenador, incluyendo los diferentes modos de entrenamiento.
+	\item \textbf{Experimentos finales:} experimentos pensados para la evaluación del rendimiento de los distintos modos de entrenamiento del entrenador final.
+	\item \textbf{Escritura de la memoria:} finalmente se redactó este informe, documentando todo el proceso realizado durante el desarrollo del proyecto.
+\end{itemize}

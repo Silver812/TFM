@@ -1,0 +1,244 @@
+\begin{thebibliography}{10}
+
+\bibitem{aaron_garret_library_2025}
+{Aaron Garret}.
+\newblock Library {Reference} — inspyred 1.0.3 documentation, 2025.
+\newblock URL: \url{https://inspyred.readthedocs.io/en/latest/reference.html}.
+
+\bibitem{adam_ciezkowski_developing_2023}
+{Adam Ciężkowski} and {Artur Krzyżyński}.
+\newblock Developing {Card} {Playing} {Agent} for {Tales} of {Tribute} {AI} {Competition}, 2023.
+\newblock URL: \url{https://jakubkowalski.tech/Supervising/Ciezkowski2023DevelopingCard.pdf}.
+
+\bibitem{ai_and_games_why_2024}
+{AI and Games}.
+\newblock Why is {It} {Difficult} to {Make} {Good} {AI} for {Games}? {\textbar} {AI} 101, January 2024.
+\newblock URL: \url{https://www.youtube.com/watch?v=qCkqpRnk1oU}.
+
+\bibitem{cd_projekt_red_witcher_2025}
+{CD Projekt Red}.
+\newblock The {Witcher} 4 {Unreal} {Engine} 5 {Tech} {Demo} {4K} {\textbar} {State} of {Unreal} {\textbar} {Unreal} {Fest} {Orlando}, June 2025.
+\newblock URL: \url{https://www.youtube.com/watch?v=aorRfK478RE}.
+
+\bibitem{ematerasu_scriptsoftribute_2022}
+{Ematerasu}, {Jakub Kowalski}, and {Radosław Miernik}.
+\newblock {ScriptsOfTribute} · {GitHub}, 2022.
+\newblock URL: \url{https://github.com/ScriptsOfTribute}.
+
+\bibitem{ematerasu_scriptsoftribute-competitionsarchive_2024}
+{Ematerasu}, {Jakub Kowalski}, and {Radosław Miernik}.
+\newblock {ScriptsOfTribute}-{CompetitionsArchive}, 2024.
+\newblock URL: \url{https://github.com/ScriptsOfTribute/ScriptsOfTribute-CompetitionsArchive}.
+
+\bibitem{ematerasu_scriptsoftribute-gui-20_2025}
+{Ematerasu}, {Jakub Kowalski}, and {Radosław Miernik}.
+\newblock {ScriptsOfTribute}-{GUI}-2.0, June 2025.
+\newblock original-date: 2025-04-14T08:38:44Z.
+\newblock URL: \url{https://github.com/ScriptsOfTribute/ScriptsOfTribute-GUI-2.0}.
+
+\bibitem{universidad_europea_que_2025}
+Universidad Europea.
+\newblock ¿{Qué} es mesh en el desarrollo de videojuegos? {\textbar} {Blog} {CC}, April 2025.
+\newblock Section: Blog.
+\newblock URL: \url{https://creativecampus.universidadeuropea.com/blog/meshes/}.
+
+\bibitem{epic_games_behavior_2024}
+Epic Games.
+\newblock Behavior {Tree} in {Unreal} {Engine} - {Overview} {\textbar} {Unreal} {Engine} 5.6 {Documentation} {\textbar} {Epic} {Developer} {Community}, 2024.
+\newblock URL: \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview}.
+
+\bibitem{epic_games_ml_2025}
+Epic Games.
+\newblock {ML} {Deformer} {Framework} in {Unreal} {Engine} {\textbar} {Unreal} {Engine} 5.6 {Documentation} {\textbar} {Epic} {Developer} {Community}, 2025.
+\newblock URL: \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/ml-deformer-framework-in-unreal-engine}.
+
+\bibitem{garcia-sanchez_optimizing_2020}
+Pablo García-Sánchez, Alberto Tonda, Antonio~J. Fernández-Leiva, and Carlos Cotta.
+\newblock Optimizing {Hearthstone} agents using an evolutionary algorithm.
+\newblock {\em Knowledge-Based Systems}, 188:105032, January 2020.
+\newblock URL: \url{https://www.sciencedirect.com/science/article/pii/S0950705119304356}, \href {https://doi.org/10.1016/j.knosys.2019.105032} {\path{doi:10.1016/j.knosys.2019.105032}}.
+
+\bibitem{garrett_aarongarrettinspyred_2012}
+Aaron Garrett.
+\newblock aarongarrett/inspyred, 2012.
+\newblock original-date: 2012-03-08T04:44:48Z.
+\newblock URL: \url{https://github.com/aarongarrett/inspyred}.
+
+\bibitem{gaudreau_game_2025}
+Colin Gaudreau and Andreas Lasses.
+\newblock Game {AI} {Summit}: {No} {Brakes}! {Machine} {Learning} {Vehicles} in '{Star} {Wars} {Outlaws}', 2025.
+\newblock URL: \url{https://gdcvault.com/play/1035556/Game-AI-Summit-No-Brakes}.
+
+\bibitem{geijtenbeek_flexible_2013}
+Thomas Geijtenbeek, Michiel van~de Panne, and A.~Frank van~der Stappen.
+\newblock Flexible muscle-based locomotion for bipedal creatures.
+\newblock {\em ACM Trans. Graph.}, 32(6):206:1--206:11, November 2013.
+\newblock \href {https://doi.org/10.1145/2508363.2508399} {\path{doi:10.1145/2508363.2508399}}.
+
+\bibitem{ghasemi_comprehensive_2025}
+Majid Ghasemi, Amir Hossein, and Dariush Ebrahimi.
+\newblock Comprehensive {Survey} of {Reinforcement} {Learning}: {From} {Algorithms} to {Practical} {Challenges}, February 2025.
+\newblock URL: \url{https://arxiv.org/html/2411.18892v2#bib.bib84}.
+
+\bibitem{google_grpc_2016}
+{Google}.
+\newblock {gRPC}, 2016.
+\newblock URL: \url{https://grpc.io/}.
+
+\bibitem{guervos_jjplantilla-tfg-etsiit_2024}
+Juan Julián~Merelo Guervós.
+\newblock {JJ}/plantilla-{TFG}-{ETSIIT}, September 2024.
+\newblock original-date: 2019-03-19T11:58:46Z.
+\newblock URL: \url{https://github.com/JJ/plantilla-TFG-ETSIIT}.
+
+\bibitem{hearthsim_hearthsimsabberstone_2017}
+{HearthSim}.
+\newblock {HearthSim}/{SabberStone}, January 2017.
+\newblock original-date: 2017-01-17T08:58:37Z.
+\newblock URL: \url{https://github.com/HearthSim/SabberStone}.
+
+\bibitem{isla_managing_2005}
+Damian Isla.
+\newblock Managing {Complexity} in the {Halo} 2 {AI} {System}, 2005.
+\newblock URL: \url{https://www.gdcvault.com/play/1020270/Managing-Complexity-in-the-Halo}.
+
+\bibitem{jeff_gdc_2006}
+Orkin Jeff.
+\newblock {GDC} {Vault} - {Three} {States} and a {Plan}: {The} {AI} of {F}.{E}.{A}.{R}., 2006.
+\newblock URL: \url{https://gdcvault.com/play/1013282/Three-States-and-a-Plan}.
+
+\bibitem{leo_kelion_deepmind_2019}
+{Leo Kelion}.
+\newblock {DeepMind} {AI} achieves {Grandmaster} status at {Starcraft} 2.
+\newblock October 2019.
+\newblock URL: \url{https://www.bbc.com/news/technology-50212841}.
+
+\bibitem{magi-soft_development_magic_2002}
+{Magi-Soft Development}.
+\newblock Magic {Workstation}, {Cards} {Management} and {Decks} {Testing} for {CCG} {Players}, {Online} {Play}, 2002.
+\newblock URL: \url{https://www.magicworkstation.com/}.
+
+\bibitem{mariela_nogueira_analysis_2013}
+{Mariela Nogueira}, {Carlos Cotta}, and {Antonio J. Fernández-Leiva}.
+\newblock An {Analysis} of {Hall}-of-{Fame} {Strategies} in {Competitive} {Coevolutionary} {Algorithms} for {Self}-{Learning} in {RTS} {Games}.
+\newblock {\em ResearchGate}, January 2013.
+\newblock URL: \url{https://www.researchgate.net/publication/290305105_An_Analysis_of_Hall-of-Fame_Strategies_in_Competitive_Coevolutionary_Algorithms_for_Self-Learning_in_RTS_Games}, \href {https://doi.org/10.1007/978-3-642-44973-4_19} {\path{doi:10.1007/978-3-642-44973-4_19}}.
+
+\bibitem{mike_game_2016}
+Mike.
+\newblock Game {Programming} {Concepts}–{Finite} {State} {Machines}, June 2016.
+\newblock URL: \url{https://gamefromscratch.com/game-programming-concepts-finite-state-machines/}.
+
+\bibitem{moschopoulos_lucy-skg_2023}
+Vasileios Moschopoulos, Pantelis Kyriakidis, Aristotelis Lazaridis, and Ioannis Vlahavas.
+\newblock Lucy-{SKG}: {Learning} to {Play} {Rocket} {League} {Efficiently} {Using} {Deep} {Reinforcement} {Learning}, May 2023.
+\newblock arXiv:2305.15801 [cs].
+\newblock URL: \url{http://arxiv.org/abs/2305.15801}, \href {https://doi.org/10.48550/arXiv.2305.15801} {\path{doi:10.48550/arXiv.2305.15801}}.
+
+\bibitem{openai_dota_2019}
+OpenAI, Christopher Berner, Greg Brockman, Brooke Chan, Vicki Cheung, Przemysław Dębiak, Christy Dennison, David Farhi, Quirin Fischer, Shariq Hashme, Chris Hesse, Rafal Józefowicz, Scott Gray, Catherine Olsson, Jakub Pachocki, Michael Petrov, Henrique P. d~O. Pinto, Jonathan Raiman, Tim Salimans, Jeremy Schlatter, Jonas Schneider, Szymon Sidor, Ilya Sutskever, Jie Tang, Filip Wolski, and Susan Zhang.
+\newblock Dota 2 with {Large} {Scale} {Deep} {Reinforcement} {Learning}, December 2019.
+\newblock arXiv:1912.06680 [cs, stat].
+\newblock URL: \url{http://arxiv.org/abs/1912.06680}, \href {https://doi.org/10.48550/arXiv.1912.06680} {\path{doi:10.48550/arXiv.1912.06680}}.
+
+\bibitem{pixel_eso_2022}
+Pixel.
+\newblock {ESO} {Tales} of {Tribute} {Guide}, June 2022.
+\newblock URL: \url{https://deltiasgaming.com/eso-tales-of-tribute-guide/}.
+
+\bibitem{redheffer_machine_1948}
+Raymond Redheffer.
+\newblock A {Machine} for {Playing} the {Game} {Nim}.
+\newblock {\em The American Mathematical Monthly}, 55(6):343--349, June 1948.
+\newblock Publisher: Taylor \& Francis \_eprint: https://doi.org/10.1080/00029890.1948.11999249.
+\newblock \href {https://doi.org/10.1080/00029890.1948.11999249} {\path{doi:10.1080/00029890.1948.11999249}}.
+
+\bibitem{russell_artificial_2020}
+Stuart Russell and Peter Norvig.
+\newblock {\em Artificial {Intelligence}: {A} {Modern} {Approach}}.
+\newblock Hoboken, April 2020.
+
+\bibitem{silver_mastering_2017}
+David Silver, Thomas Hubert, Julian Schrittwieser, Ioannis Antonoglou, Matthew Lai, Arthur Guez, Marc Lanctot, Laurent Sifre, Dharshan Kumaran, Thore Graepel, Timothy Lillicrap, Karen Simonyan, and Demis Hassabis.
+\newblock Mastering {Chess} and {Shogi} by {Self}-{Play} with a {General} {Reinforcement} {Learning} {Algorithm}, December 2017.
+\newblock arXiv:1712.01815 [cs].
+\newblock URL: \url{http://arxiv.org/abs/1712.01815}, \href {https://doi.org/10.48550/arXiv.1712.01815} {\path{doi:10.48550/arXiv.1712.01815}}.
+
+\bibitem{simao_reis_vgc_2019}
+{Simão Reis}.
+\newblock {VGC} {AI} {Framework}, October 2019.
+\newblock URL: \url{https://gitlab.com/DracoStriker/pokemon-vgc-engine}.
+
+\bibitem{snell_evolutionary_2021}
+Jacob Snell, Martin Masek, and Chiou Lam.
+\newblock An evolutionary approach to balancing and disrupting real-time strategy games.
+\newblock {\em MODSIM2021, 24th International Congress on Modelling and Simulation}, January 2021.
+\newblock URL: \url{https://ro.ecu.edu.au/ecuworkspost2013/11752}, \href {https://doi.org/10.36334/modsim.2021.M8.snell} {\path{doi:10.36334/modsim.2021.M8.snell}}.
+
+\bibitem{thompson_ai_2024}
+Tommy Thompson.
+\newblock {AI} 101: {Introducing} {Utility} {AI}, February 2024.
+\newblock URL: \url{https://www.aiandgames.com/p/ai-101-introducing-utility-ai}.
+
+\bibitem{thompson_how_2025}
+Tommy Thompson.
+\newblock How {AI} is {Actually} {Used} in the {Video} {Games} {Industry}, April 2025.
+\newblock URL: \url{https://www.aiandgames.com/p/how-ai-is-actually-used-in-the-video}.
+
+\bibitem{togelius_search-based_2011}
+Julian Togelius, Georgios~N. Yannakakis, Kenneth~O. Stanley, and Cameron Browne.
+\newblock Search-{Based} {Procedural} {Content} {Generation}: {A} {Taxonomy} and {Survey}.
+\newblock {\em IEEE Transactions on Computational Intelligence and AI in Games}, 3(3):172--186, September 2011.
+\newblock URL: \url{https://ieeexplore.ieee.org/document/5756645}, \href {https://doi.org/10.1109/TCIAIG.2011.2148116} {\path{doi:10.1109/TCIAIG.2011.2148116}}.
+
+\bibitem{torres-jimenez_applications_2014}
+Jose Torres-Jiménez and Juan Pavón.
+\newblock Applications of metaheuristics in real-life problems.
+\newblock {\em Progress in Artificial Intelligence}, 2(4):175--176, July 2014.
+\newblock \href {https://doi.org/10.1007/s13748-014-0051-8} {\path{doi:10.1007/s13748-014-0051-8}}.
+
+\bibitem{vinyals_grandmaster_2019}
+Oriol Vinyals, Igor Babuschkin, Wojciech~M. Czarnecki, Michaël Mathieu, Andrew Dudzik, Junyoung Chung, David~H. Choi, Richard Powell, Timo Ewalds, Petko Georgiev, Junhyuk Oh, Dan Horgan, Manuel Kroiss, Ivo Danihelka, Aja Huang, Laurent Sifre, Trevor Cai, John~P. Agapiou, Max Jaderberg, Alexander~S. Vezhnevets, Rémi Leblond, Tobias Pohlen, Valentin Dalibard, David Budden, Yury Sulsky, James Molloy, Tom~L. Paine, Caglar Gulcehre, Ziyu Wang, Tobias Pfaff, Yuhuai Wu, Roman Ring, Dani Yogatama, Dario Wünsch, Katrina McKinney, Oliver Smith, Tom Schaul, Timothy Lillicrap, Koray Kavukcuoglu, Demis Hassabis, Chris Apps, and David Silver.
+\newblock Grandmaster level in {StarCraft} {II} using multi-agent reinforcement learning.
+\newblock {\em Nature}, 575(7782):350--354, November 2019.
+\newblock Publisher: Nature Publishing Group.
+\newblock URL: \url{https://www.nature.com/articles/s41586-019-1724-z}, \href {https://doi.org/10.1038/s41586-019-1724-z} {\path{doi:10.1038/s41586-019-1724-z}}.
+
+\bibitem{wikipedia_artificial_2025}
+Wikipedia.
+\newblock Artificial intelligence in video games, May 2025.
+\newblock Page Version ID: 1292216335.
+\newblock URL: \url{https://en.wikipedia.org/w/index.php?title=Artificial_intelligence_in_video_games&oldid=1292216335}.
+
+\bibitem{wikipedia_diseno_2025}
+Wikipedia.
+\newblock Diseño de juegos, May 2025.
+\newblock Page Version ID: 167396849.
+\newblock URL: \url{https://es.wikipedia.org/w/index.php?title=Dise%C3%B1o_de_juegos&oldid=167396849}.
+
+\bibitem{wikipedia_red_2025}
+{Wikipedia}.
+\newblock Red {Queen} hypothesis, May 2025.
+\newblock Page Version ID: 1292222837.
+\newblock URL: \url{https://en.wikipedia.org/w/index.php?title=Red_Queen_hypothesis&oldid=1292222837}.
+
+\bibitem{wolpert_no_1997}
+D.H. Wolpert and W.G. Macready.
+\newblock No free lunch theorems for optimization.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 1(1):67--82, April 1997.
+\newblock URL: \url{https://ieeexplore.ieee.org/document/585893}, \href {https://doi.org/10.1109/4235.585893} {\path{doi:10.1109/4235.585893}}.
+
+\bibitem{wurman_outracing_2022}
+Peter~R. Wurman, Samuel Barrett, Kenta Kawamoto, James MacGlashan, Kaushik Subramanian, Thomas~J. Walsh, Roberto Capobianco, Alisa Devlic, Franziska Eckert, Florian Fuchs, Leilani Gilpin, Piyush Khandelwal, Varun Kompella, HaoChih Lin, Patrick MacAlpine, Declan Oller, Takuma Seno, Craig Sherstan, Michael~D. Thomure, Houmehr Aghabozorgi, Leon Barrett, Rory Douglas, Dion Whitehead, Peter Dürr, Peter Stone, Michael Spranger, and Hiroaki Kitano.
+\newblock Outracing champion {Gran} {Turismo} drivers with deep reinforcement learning.
+\newblock {\em Nature}, 602(7896):223--228, February 2022.
+\newblock Publisher: Nature Publishing Group.
+\newblock URL: \url{https://www.nature.com/articles/s41586-021-04357-7}, \href {https://doi.org/10.1038/s41586-021-04357-7} {\path{doi:10.1038/s41586-021-04357-7}}.
+
+\bibitem{swiechowski_improving_2018}
+Maciej Świechowski, Tomasz Tajmajer, and Andrzej Janusz.
+\newblock Improving {Hearthstone} {AI} by {Combining} {MCTS} and {Supervised} {Learning} {Algorithms}, August 2018.
+\newblock arXiv:1808.04794 [cs].
+\newblock URL: \url{http://arxiv.org/abs/1808.04794}, \href {https://doi.org/10.48550/arXiv.1808.04794} {\path{doi:10.48550/arXiv.1808.04794}}.
+
+\end{thebibliography}

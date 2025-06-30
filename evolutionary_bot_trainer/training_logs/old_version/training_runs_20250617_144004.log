@@ -1,0 +1,1729 @@
+Starting training sequence at mar 17 jun 2025 14:40:04 CEST
+Log file: /home/david/SoTAgents/evolutionary_bot_trainer/scripts/../training_logs/training_runs_20250617_144004.log
+
+========================================================================
+STARTING TRAINING: Fixed Mode Training HoF 4 at mar 17 jun 2025 14:40:04 CEST
+PARAMETERS: --num_games 50 --num_threads 10 --num_training 5 --max_evaluations 1000 --pop_size 100  --intra_run_hof_size 3 --evaluation_mode fixed
+========================================================================
+
+--- Configuration Summary ---
+  Number of Training Runs: 5
+  Population Size: 100
+  Max Evaluations per Run: 1000
+  Seed: 123
+  Threads for Parallelism: 10
+  Training Logs Enabled: True
+  Evaluation Mode: fixed
+  Fixed Opponent Bots: PatronFavorsBot, MaxAgentsBot, MaxPrestigeBot
+  Base Games vs Fixed Opponents: 50
+  Hall of Fame Size: 0
+  Turn Timeout: 1 seconds
+  Match Logs: NONE
+  GameRunner Verbose Output: False
+  Use Session Seed for All Matches: False
+  Weight Precision: 8
+  Log Level: INFO
+  Note: Benchmark games often use a multiplier on base game values
+---------------------------
+
+Using GameRunner executable at: /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner
+Master PRNG initialized with seed: 123
+Logging training data to CSV: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250617_144004_s123_mfixed.csv
+Starting Training Run 1/5 (HoF size: 0)
+
+Run 1, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0        100      30.3s        0.0       19.0        0.0        1.7 3.92193830
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1        200      51.4s        1.0       25.0        2.0        4.7 5.23736575
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2        300      75.7s        3.0       26.0        5.0        7.2 5.45816819
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3        400      97.3s        5.0       29.0        8.0       10.5 6.23765982
+Intra-Run HoF: Replaced weakest member (with 55 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        500     101.1s        7.0       30.0       11.0       13.5 6.39921089
+Intra-Run HoF: Replaced weakest member (with 54 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        600      82.3s        9.0       31.0       16.0       17.3 6.55721740
+Intra-Run HoF: Added new champion. Size: 3
+GameRunner process failed with code -11
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        700     103.2s       12.0       31.0       20.0       20.4 5.34512862
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        800     106.1s       16.0       34.0       23.0       23.3 4.11246884
+Intra-Run HoF: Replaced weakest member (with 51 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        900     104.1s       21.0       37.0       25.0       25.3 3.14977777
+Intra-Run HoF: Replaced weakest member (with 51 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9       1000      81.4s       23.0       37.0       26.0       26.3 2.60798773
+
+Run 1 completed. Best fitness: 37.00
+Run 1 champion fitness: 37.00
+Starting Training Run 2/5 (HoF size: 0)
+
+Run 2, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0        100      27.4s        0.0       21.0        0.0        1.2 3.61346094
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1        200      50.8s        1.0       21.0        2.0        4.6 5.17014507
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2        300      75.2s        3.0       21.0        5.0        7.0 4.71788088
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3        400      78.0s        4.0       25.0        8.5        9.6 5.14003891
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        500     105.3s        6.0       26.0       10.0       11.9 4.91173086
+Intra-Run HoF: Replaced weakest member (with 53 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        600      83.8s        9.0       26.0       12.0       13.7 4.56739532
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        700     102.9s       11.0       28.0       16.0       16.9 4.84413047
+Intra-Run HoF: Replaced weakest member (with 56 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        800     101.8s       13.0       30.0       19.0       19.7 4.42542653
+Intra-Run HoF: Replaced weakest member (with 58 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        900     104.4s       16.0       31.0       21.0       21.9 3.84104153
+Intra-Run HoF: Replaced weakest member (with 56 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9       1000      83.6s       18.0       33.0       22.5       23.1 3.58892742
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 2 completed. Best fitness: 33.00
+Run 2 champion fitness: 33.00
+Starting Training Run 3/5 (HoF size: 0)
+
+Run 3, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0        100      31.1s        0.0       24.0        0.0        2.5 5.06654715
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1        200      50.7s        1.0       24.0        3.0        5.0 5.22287277
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2        300      52.5s        2.0       24.0        4.5        7.2 5.70154365
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3        400      57.6s        4.0       27.0        8.0        9.7 5.65264540
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        500      80.4s        7.0       27.0       12.0       12.9 5.20480547
+Intra-Run HoF: Added new champion. Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        600      81.2s        9.0       31.0       13.0       15.1 5.34916816
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        700     103.5s       12.0       33.0       16.0       18.1 5.43657981
+Intra-Run HoF: Replaced weakest member (with 55 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        800     103.5s       14.0       37.0       20.0       20.7 5.14602759
+Intra-Run HoF: Replaced weakest member (with 50 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        900     103.4s       16.0       40.0       21.5       22.5 4.72753636
+Intra-Run HoF: Replaced weakest member (with 60 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9       1000      82.2s       18.0       40.0       23.0       23.7 4.14366987
+
+Run 3 completed. Best fitness: 40.00
+Run 3 champion fitness: 40.00
+Starting Training Run 4/5 (HoF size: 0)
+
+Run 4, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0        100      29.2s        0.0       18.0        0.0        1.2 2.95634910
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1        200      49.7s        1.0       18.0        2.0        3.6 3.78516842
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2        300      52.2s        2.0       33.0        3.0        5.8 5.48396754
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3        400      77.4s        3.0       33.0        6.0        8.6 6.16502230
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        500      79.6s        5.0       33.0        9.5       11.7 6.52664539
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        600      80.7s        8.0       36.0       13.0       14.9 6.26637854
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        700     101.0s       10.0       36.0       17.0       17.8 6.21350143
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        800     103.3s       13.0       36.0       18.0       20.0 5.63470496
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        900     104.7s       15.0       36.0       21.0       21.6 4.98175672
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+GameRunner process failed with code -11
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9       1000      82.8s       17.0       36.0       22.0       22.8 4.55494237
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 4 completed. Best fitness: 36.00
+Run 4 champion fitness: 36.00
+Starting Training Run 5/5 (HoF size: 0)
+
+Run 5, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0        100      31.9s        0.0       17.0        0.0        1.6 3.57077023
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1        200      53.7s        1.0       25.0        3.0        5.1 5.11824189
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2        300      75.7s        3.0       25.0        5.0        7.8 5.45947800
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3        400     103.2s        5.0       30.0        9.0       10.1 5.23770942
+Intra-Run HoF: Replaced weakest member (with 47 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        500     102.3s        6.0       32.0       11.0       12.1 5.61252171
+Intra-Run HoF: Replaced weakest member (with 52 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        600      78.5s        8.0       35.0       13.0       14.7 5.77556058
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        700     101.5s       11.0       36.0       17.0       17.8 5.71673858
+Intra-Run HoF: Replaced weakest member (with 55 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        800     104.0s       13.0       36.0       18.0       19.8 5.21930072
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        900     102.7s       15.0       36.0       21.0       21.6 5.09528213
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9       1000      82.4s       17.0       38.0       22.0       22.7 4.85809633
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 5 completed. Best fitness: 38.00
+Run 5 champion fitness: 38.00
+
+--- Starting Final Benchmark of 5 Champions ---
+Benchmark Style: Fixed (vs ['PatronFavorsBot', 'MaxAgentsBot', 'MaxPrestigeBot'] and HoF). Games x5
+Benchmarking Champion from Run 1 (Fixed)...
+  Run 1 Champion Fitness: 138.00
+Benchmarking Champion from Run 2 (Fixed)...
+  Run 2 Champion Fitness: 110.00
+Benchmarking Champion from Run 3 (Fixed)...
+  Run 3 Champion Fitness: 125.00
+Benchmarking Champion from Run 4 (Fixed)...
+  Run 4 Champion Fitness: 157.00
+Benchmarking Champion from Run 5 (Fixed)...
+  Run 5 Champion Fitness: 142.00
+
+--- Overall Training Summary ---
+Total session duration: 01:07:01 (4021.66 seconds)
+Best overall benchmark fitness: 157.00
+Best Weights (from benchmark):
+0.25344718,0.00000000,0.00000000,0.19143730,0.00000000,0.00000000,0.00000000,0.00000000,0.06766866,0.79553407,0.62409961,1.00000000,0.00000000,0.99429917,0.00000000,0.01046889,1.00000000,1.00000000,1.00000000,0.12160484
+Saving best weights to /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/eb_best_weights.txt
+CSV log for this training session is in: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250617_144004_s123_mfixed.csv
+========================================================================
+COMPLETED: Fixed Mode Training HoF 4 at mar 17 jun 2025 15:47:06 CEST
+========================================================================
+
+========================================================================
+STARTING TRAINING: Hybrid Mode Training HoF 4 at mar 17 jun 2025 15:47:06 CEST
+PARAMETERS: --num_games 50 --num_threads 10 --num_training 5 --max_evaluations 500 --pop_size 20 --intra_run_hof_size 3 --evaluation_mode hybrid --hybrid_schedule_str fixed:0.4,coevolution:0.3,fixed:0.3
+========================================================================
+
+--- Configuration Summary ---
+  Number of Training Runs: 5
+  Population Size: 20
+  Max Evaluations per Run: 500
+  Seed: 123
+  Threads for Parallelism: 10
+  Training Logs Enabled: True
+  Evaluation Mode: hybrid
+  Hybrid Schedule: [('fixed', 0.4), ('coevolution', 0.3), ('fixed', 0.3)]
+  Fixed Opponent Bots: PatronFavorsBot, MaxAgentsBot, MaxPrestigeBot
+  Base Games vs Fixed Opponents: 50
+  Coevo Pairing Strategy: round_robin
+  Base Coevo Games per Pairing: 5
+  Hall of Fame Size: 0
+  Turn Timeout: 1 seconds
+  Match Logs: NONE
+  GameRunner Verbose Output: False
+  Use Session Seed for All Matches: False
+  Weight Precision: 8
+  Log Level: INFO
+  Note: Benchmark games often use a multiplier on base game values
+---------------------------
+
+Using GameRunner executable at: /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner
+Master PRNG initialized with seed: 123
+Logging training data to CSV: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250617_154706_s123_mhybrid.csv
+Starting Training Run 1/5 (HoF size: 0)
+
+Run 1, Segment 1/3: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         20       7.7s        0.0       10.0        0.0        1.1 2.83681159
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         40       9.1s        0.0       24.0        2.0        4.2 5.36539840
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         60       9.2s        2.0       24.0        5.0        7.2 5.61137238
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         80       9.5s        4.0       30.0        8.0       12.3 8.15536633
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        100      12.8s        6.0       30.0       14.5       15.2 7.77093945
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        120      13.6s        9.0       30.0       19.5       18.1 6.55343421
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        140      11.6s       13.0       30.0       20.0       20.9 4.79035489
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        160      11.0s       16.0       33.0       21.5       23.0 4.51663592
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        180      11.3s       20.0       33.0       25.0       25.0 3.66060104
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        200       9.9s       22.0       33.0       26.0       26.4 2.81558165
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 1, Segment 2/3: Mode 'coevolution', Evals: 160, Eval offset: 200, Gen offset: 10
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        220      15.6s       34.0       68.0       51.0       51.5 8.61669890
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        240      58.4s      102.0      127.0      110.5      111.5 6.13575586
+Intra-Run HoF: Replaced weakest member (with 21 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        260      58.2s       98.0      134.0      113.5      113.5 9.43133077
+Intra-Run HoF: Replaced weakest member (with 17 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        280      56.4s      100.0      128.0      110.0      110.2 7.29297607
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        300      58.0s      104.0      124.0      113.0      112.1 6.23618473
+Intra-Run HoF: Replaced weakest member (with 15 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        320      58.1s      100.0      123.0      111.5      111.8 6.90850925
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        340      59.6s      102.0      126.0      108.5      110.7 6.81982404
+Intra-Run HoF: Replaced weakest member (with 18 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        360      56.9s      101.0      119.0      108.5      108.8 5.35980410
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 1, Segment 3/3: Mode 'fixed', Evals: 140, Eval offset: 360, Gen offset: 18
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        380       9.8s        1.0       18.0        4.0        5.2 4.07768317
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        400       9.1s        4.0       18.0        5.0        6.5 3.36860505
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        20        420       8.7s        5.0       26.0        6.0        8.2 5.13103303
+Intra-Run HoF: Replaced weakest member (with 10 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        21        440      11.3s        5.0       28.0        7.5       10.2 6.57171971
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        22        460      11.4s        6.0       28.0        8.0       10.6 6.37495098
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        23        480      10.2s        6.0       28.0        9.5       11.7 6.21369455
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        24        500      11.1s        8.0       28.0       11.0       13.8 6.33462706
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Run 1 completed. Best fitness: 28.00
+Run 1 champion fitness: 28.00
+Starting Training Run 2/5 (HoF size: 0)
+
+Run 2, Segment 1/3: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         20       5.8s        0.0       19.0        0.0        1.1 4.15060237
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         40       9.7s        0.0       19.0        2.0        4.0 5.04455152
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         60       9.2s        2.0       26.0        4.5        7.7 6.99356847
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         80       9.9s        4.0       29.0        9.0       11.7 7.76063786
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        100      11.7s        8.0       29.0       18.0       16.9 5.79892231
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        120      10.7s       12.0       29.0       19.0       19.6 4.75815090
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        140      10.8s       16.0       29.0       21.0       21.9 4.15812458
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        160      11.5s       21.0       29.0       24.0       24.7 2.79463772
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        180      10.3s       23.0       31.0       25.5       26.0 2.52982213
+Intra-Run HoF: Replaced weakest member (with 10 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        200      10.3s       23.0       31.0       26.0       26.6 2.47537876
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 2, Segment 2/3: Mode 'coevolution', Evals: 160, Eval offset: 200, Gen offset: 10
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        220      15.7s       40.0       64.0       50.0       51.0 6.95701085
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        240      57.9s      101.0      125.0      111.5      111.4 7.63151361
+Intra-Run HoF: Replaced weakest member (with 21 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        260      58.3s      104.0      129.0      108.0      110.7 6.41170804
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        280      56.4s      101.0      121.0      109.5      110.8 6.53356717
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        300      58.0s       98.0      129.0      112.5      112.2 8.61742421
+Intra-Run HoF: Replaced weakest member (with 20 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        320      58.4s      101.0      130.0      113.0      113.2 7.23792097
+Intra-Run HoF: Replaced weakest member (with 21 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        340      58.2s      103.0      126.0      111.0      112.2 6.24980000
+Intra-Run HoF: Replaced weakest member (with 17 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        360      56.8s       98.0      123.0      110.5      109.5 6.39120489
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 2, Segment 3/3: Mode 'fixed', Evals: 140, Eval offset: 360, Gen offset: 18
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        380       9.6s        1.0       10.0        4.0        4.4 2.13072758
+Intra-Run HoF: Replaced weakest member (with 6 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        400      11.5s        4.0       15.0        5.0        6.5 2.74727137
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        20        420      10.8s        5.0       15.0        7.0        8.3 3.39263909
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        21        440       9.2s        6.0       23.0       10.0       10.6 4.23644898
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        22        460      10.6s        8.0       31.0       13.5       15.8 6.75925292
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        23        480      11.5s       13.0       31.0       17.0       19.5 5.33385414
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        24        500      12.3s       16.0       31.0       21.0       21.5 4.37607130
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Run 2 completed. Best fitness: 31.00
+Run 2 champion fitness: 31.00
+Starting Training Run 3/5 (HoF size: 0)
+
+Run 3, Segment 1/3: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         20       7.6s        0.0       20.0        0.0        3.5 5.83502356
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         40       7.8s        1.0       20.0        2.0        4.5 5.30542176
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         60       8.5s        2.0       23.0        3.0        6.5 6.38337685
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         80       9.3s        3.0       23.0        5.0        8.3 6.43506022
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        100       9.0s        4.0       23.0        7.5       10.1 6.41014820
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        120      10.3s        5.0       25.0        9.0       11.7 6.66539571
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        140      10.6s        7.0       25.0       13.5       14.5 6.00416522
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        160      10.8s       10.0       29.0       16.5       17.4 5.96217242
+Intra-Run HoF: Replaced weakest member (with 7 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        180      13.3s       12.0       29.0       18.5       18.6 5.27517772
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        200       9.8s       15.0       29.0       20.5       20.6 3.87653196
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 3, Segment 2/3: Mode 'coevolution', Evals: 160, Eval offset: 200, Gen offset: 10
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        220      15.7s       37.0       65.0       51.0       50.9 7.81600921
+Intra-Run HoF: Replaced weakest member (with 9 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        240      57.8s      100.0      125.0      110.5      111.8 7.56703376
+Intra-Run HoF: Replaced weakest member (with 18 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        260      58.2s      103.0      123.0      110.5      110.8 6.66783323
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        280      56.1s      103.0      124.0      111.0      110.6 5.81721583
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        300      58.0s       98.0      122.0      110.0      110.2 6.15528228
+Intra-Run HoF: Replaced weakest member (with 20 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        320      58.3s      101.0      131.0      113.0      113.4 8.42258868
+Intra-Run HoF: Replaced weakest member (with 15 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        340      58.2s       99.0      134.0      110.0      111.8 10.28724939
+Intra-Run HoF: Replaced weakest member (with 18 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        360      56.4s      100.0      123.0      110.5      110.7 7.14912582
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 3, Segment 3/3: Mode 'fixed', Evals: 140, Eval offset: 360, Gen offset: 18
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        380      11.3s        1.0       17.0        4.5        5.6 4.32897216
+Intra-Run HoF: Replaced weakest member (with 9 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        400      10.6s        4.0       17.0        7.0        7.8 3.32978978
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        20        420      11.7s        6.0       20.0        8.0        9.9 4.43734155
+Intra-Run HoF: Replaced weakest member (with 9 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        21        440      10.5s        7.0       20.0        9.5       11.4 4.18807832
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        22        460      11.1s        9.0       20.0       11.0       12.4 3.69323706
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        23        480      10.1s       11.0       29.0       14.5       15.2 4.21426150
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        24        500      11.6s       12.0       29.0       16.0       16.6 4.23556372
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Run 3 completed. Best fitness: 29.00
+Run 3 champion fitness: 29.00
+Starting Training Run 4/5 (HoF size: 0)
+
+Run 4, Segment 1/3: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         20       6.6s        0.0       10.0        0.0        0.9 2.23383079
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         40       8.5s        1.0       10.0        1.5        2.3 2.17025344
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         60       9.0s        2.0       11.0        3.0        3.7 2.55147016
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         80      10.8s        3.0       20.0        4.5        6.3 4.40766378
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        100      10.4s        4.0       21.0        6.0        8.2 4.84355242
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        120       9.4s        5.0       21.0        8.0        9.3 4.67011777
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        140      10.9s        6.0       21.0       10.0       10.6 4.15301096
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        160      10.4s        9.0       23.0       12.5       13.6 4.15301096
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        180      12.2s       10.0       23.0       14.5       15.6 3.58329457
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        200      10.8s       13.0       26.0       16.0       17.1 3.44818793
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 4, Segment 2/3: Mode 'coevolution', Evals: 160, Eval offset: 200, Gen offset: 10
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        220      15.4s       39.0       63.0       50.0       51.0 6.51517459
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        240      58.3s      102.0      132.0      111.5      112.9 8.44926032
+Intra-Run HoF: Replaced weakest member (with 19 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        260      58.2s      102.0      133.0      109.5      112.0 9.10206021
+Intra-Run HoF: Replaced weakest member (with 18 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        280      56.5s      102.0      124.0      107.5      109.0 6.07021416
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        300      58.3s      102.0      122.0      108.0      110.2 6.05702072
+Intra-Run HoF: Replaced weakest member (with 15 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        320      57.8s      103.0      129.0      107.5      110.4 7.13021739
+Intra-Run HoF: Replaced weakest member (with 18 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        340      58.0s      102.0      130.0      109.5      111.5 7.88986692
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        360      56.1s      100.0      119.0      106.0      107.8 5.35046727
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 4, Segment 3/3: Mode 'fixed', Evals: 140, Eval offset: 360, Gen offset: 18
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        380      11.0s        1.0       14.0        4.0        4.5 2.88963666
+Intra-Run HoF: Replaced weakest member (with 8 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        400       9.9s        4.0       23.0        6.0        8.5 5.27730992
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        20        420      10.4s        5.0       23.0        7.0        9.9 5.24857123
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        21        440      10.0s        7.0       23.0       13.0       13.2 4.95857843
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        22        460      11.2s       12.0       29.0       16.5       17.6 4.45505331
+Intra-Run HoF: Replaced weakest member (with 9 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        23        480      10.5s       15.0       29.0       20.0       20.0 3.79473319
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        24        500      10.1s       17.0       29.0       21.0       21.4 3.00790625
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Run 4 completed. Best fitness: 29.00
+Run 4 champion fitness: 29.00
+Starting Training Run 5/5 (HoF size: 0)
+
+Run 5, Segment 1/3: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         20       7.5s        0.0       11.0        0.0        0.9 2.53919279
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         40       8.2s        1.0       11.0        2.0        2.8 2.29346899
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         60       8.2s        2.0       26.0        3.0        5.0 5.45893763
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         80       9.4s        3.0       26.0        5.0        6.5 5.03463008
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4        100       9.2s        4.0       26.0        7.0        9.7 6.81982404
+Intra-Run HoF: Added new champion. Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5        120      10.9s        5.0       26.0        9.0       11.6 7.03189164
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6        140      11.5s        6.0       26.0        9.5       12.6 6.47668897
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7        160      10.5s        8.0       26.0       11.5       14.4 5.98665182
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8        180       9.6s        9.0       26.0       11.5       14.6 5.81721583
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        200      12.2s       10.0       35.0       15.0       16.8 6.72216483
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 5, Segment 2/3: Mode 'coevolution', Evals: 160, Eval offset: 200, Gen offset: 10
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        220      15.5s       39.0       63.0       53.5       51.7 7.59012516
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        240      57.8s      100.0      135.0      109.0      111.3 8.46817572
+Intra-Run HoF: Replaced weakest member (with 19 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        260      58.5s      102.0      129.0      109.5      110.5 7.43303437
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        280      57.0s       99.0      123.0      108.5      109.1 7.34778878
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        300      58.1s      102.0      121.0      110.0      111.3 6.37259759
+Intra-Run HoF: Replaced weakest member (with 15 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        320      58.1s      102.0      128.0      113.5      113.1 6.78896163
+Intra-Run HoF: Replaced weakest member (with 18 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        340      58.7s      104.0      119.0      111.5      111.3 5.07222831
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        360      56.5s      100.0      131.0      109.5      110.8 7.98670771
+Intra-Run HoF: Added new champion. Size: 3
+
+Run 5, Segment 3/3: Mode 'fixed', Evals: 140, Eval offset: 360, Gen offset: 18
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        380      11.4s        2.0       24.0        5.0        5.6 4.87237109
+Intra-Run HoF: Replaced weakest member (with 7 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        400       9.9s        4.0       24.0        5.0        7.2 4.47520949
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        20        420       9.1s        5.0       33.0        6.0        8.8 7.03988636
+Intra-Run HoF: Replaced weakest member (with 10 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        21        440       8.6s        5.0       33.0        7.5       11.2 7.70454411
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        22        460       9.4s        6.0       33.0       12.0       13.1 7.23118248
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        23        480      10.7s        7.0       33.0       12.5       15.7 7.38427383
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        24        500      10.1s        9.0       33.0       14.0       16.9 6.45193769
+
+Run 5 completed. Best fitness: 33.00
+Run 5 champion fitness: 33.00
+
+--- Starting Final Benchmark of 5 Champions ---
+Benchmark Style: Fixed (vs ['PatronFavorsBot', 'MaxAgentsBot', 'MaxPrestigeBot'] and HoF). Games x5
+Benchmarking Champion from Run 1 (Fixed)...
+  Run 1 Champion Fitness: 90.00
+Benchmarking Champion from Run 2 (Fixed)...
+  Run 2 Champion Fitness: 140.00
+Benchmarking Champion from Run 3 (Fixed)...
+  Run 3 Champion Fitness: 127.00
+Benchmarking Champion from Run 4 (Fixed)...
+  Run 4 Champion Fitness: 114.00
+Benchmarking Champion from Run 5 (Fixed)...
+  Run 5 Champion Fitness: 103.00
+
+--- Overall Training Summary ---
+Total session duration: 00:50:06 (3006.76 seconds)
+Best overall benchmark fitness: 140.00
+Best Weights (from benchmark):
+0.76098192,1.00000000,0.00000000,0.11716131,0.32940117,0.90467197,0.00000000,0.00000000,0.30221653,0.78259057,0.59814733,0.78443689,0.27983233,1.00000000,0.00000000,0.64715853,0.00000000,1.00000000,0.44152856,0.00000000
+Saving best weights to /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/eb_best_weights.txt
+CSV log for this training session is in: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250617_154706_s123_mhybrid.csv
+========================================================================
+COMPLETED: Hybrid Mode Training HoF 4 at mar 17 jun 2025 16:37:13 CEST
+========================================================================
+
+========================================================================
+STARTING TRAINING: Coevolution Mode Training HoF 4 at mar 17 jun 2025 16:37:13 CEST
+PARAMETERS: --num_games 50 --num_threads 10 --num_training 5 --max_evaluations 200 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode coevolution
+========================================================================
+
+--- Configuration Summary ---
+  Number of Training Runs: 5
+  Population Size: 10
+  Max Evaluations per Run: 200
+  Seed: 123
+  Threads for Parallelism: 10
+  Training Logs Enabled: True
+  Evaluation Mode: coevolution
+  Coevo Pairing Strategy: round_robin
+  Base Coevo Games per Pairing: 5
+  Hall of Fame Size: 0
+  Turn Timeout: 1 seconds
+  Match Logs: NONE
+  GameRunner Verbose Output: False
+  Use Session Seed for All Matches: False
+  Weight Precision: 8
+  Log Level: INFO
+  Note: Benchmark games often use a multiplier on base game values
+---------------------------
+
+Using GameRunner executable at: /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner
+Master PRNG initialized with seed: 123
+Logging training data to CSV: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250617_163713_s123_mcoevolution.csv
+Starting Training Run 1/5 (HoF size: 0)
+
+Run 1, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10       7.9s       17.0       28.0       22.5       22.5 3.77491722
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20      33.4s       50.0       62.0       51.0       53.3 4.00124980
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30      36.1s       50.0       59.0       53.5       53.8 2.31516738
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40      38.3s       52.0       64.0       55.0       55.9 3.56230263
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50      38.5s       52.0       63.0       55.0       56.1 3.41906420
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60      36.0s       50.0       60.0       54.5       54.7 2.96816442
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70      36.3s       52.0       60.0       54.0       55.4 2.90516781
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80      38.4s       52.0       59.0       55.0       55.5 2.65518361
+Intra-Run HoF: Replaced weakest member (with 10 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90      38.1s       54.0       59.0       56.0       56.2 1.46969385
+Intra-Run HoF: Replaced weakest member (with 17 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100      35.9s       51.0       59.0       53.0       53.8 2.35796522
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110      38.1s       53.0       64.0       56.5       56.5 3.20156212
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120      38.3s       54.0       59.0       56.0       56.3 1.41774469
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130      38.2s       52.0       63.0       57.5       57.3 3.03479818
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140      35.9s       50.0       62.0       55.5       55.4 3.85227206
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150      38.2s       52.0       61.0       57.0       56.8 2.71293199
+Intra-Run HoF: Replaced weakest member (with 16 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160      38.4s       51.0       68.0       56.0       57.2 4.91528229
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170      38.5s       54.0       61.0       55.5       56.9 2.80891438
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180      35.9s       51.0       62.0       53.0       54.7 4.05092582
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190      38.0s       53.0       61.0       54.0       55.4 2.93938769
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200      37.9s       54.0       63.0       56.5       57.2 2.67581763
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+
+Run 1 completed. Best fitness: 63.00
+Run 1 champion fitness: 63.00
+Starting Training Run 2/5 (HoF size: 0)
+
+Run 2, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10       7.7s       17.0       28.0       23.5       22.5 3.77491722
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20      33.5s       49.0       57.0       51.0       51.9 2.66270539
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30      36.1s       50.0       65.0       55.5       55.6 4.45421149
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40      38.8s       52.0       64.0       56.0       56.9 3.70000000
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50      39.5s       52.0       62.0       56.0       56.4 3.49857114
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60      36.2s       51.0       62.0       54.0       55.2 3.51567917
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70      38.2s       52.0       60.0       55.0       55.7 2.60959767
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80      38.5s       53.0       61.0       57.0       57.1 2.58650343
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90      38.6s       52.0       65.0       57.5       57.5 4.27200187
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100      36.1s       53.0       60.0       54.0       54.9 2.21133444
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110      38.0s       52.0       61.0       55.5       55.7 2.60959767
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120      38.5s       51.0       66.0       54.5       55.0 4.07430976
+Intra-Run HoF: Replaced weakest member (with 10 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130      38.1s       50.0       66.0       56.5       56.6 4.49888875
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140      35.9s       52.0       59.0       55.5       55.5 2.06155281
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150      38.4s       52.0       63.0       54.0       55.3 3.34813381
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160      38.4s       52.0       64.0       55.5       56.5 3.85356977
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170      38.5s       53.0       62.0       55.5       56.2 2.95972972
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180      36.2s       51.0       66.0       52.0       54.3 4.69148164
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190      38.1s       53.0       64.0       56.0       56.3 2.93428015
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200      38.1s       51.0       61.0       57.0       56.5 2.97489496
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Run 2 completed. Best fitness: 61.00
+Run 2 champion fitness: 61.00
+Starting Training Run 3/5 (HoF size: 0)
+
+Run 3, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10       7.6s       19.0       26.0       22.0       22.5 1.96214169
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20      33.7s       51.0       57.0       52.5       53.1 2.25610283
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30      36.0s       52.0       59.0       53.0       54.5 2.80178515
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40      38.4s       53.0       62.0       57.0       56.7 2.49198716
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50      38.2s       53.0       60.0       54.0       55.6 2.37486842
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60      36.2s       50.0       63.0       53.5       54.8 3.68239053
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70      38.5s       52.0       60.0       56.0       55.8 2.60000000
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80      38.0s       52.0       60.0       57.5       56.7 2.64764046
+Intra-Run HoF: Replaced weakest member (with 15 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90      38.4s       52.0       61.0       57.5       56.8 3.31058907
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100      35.8s       52.0       63.0       53.5       54.9 3.30000000
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110      37.9s       52.0       62.0       55.5       55.7 3.34813381
+Intra-Run HoF: Replaced weakest member (with 10 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120      38.3s       53.0       65.0       56.0       56.9 3.50570963
+Intra-Run HoF: Replaced weakest member (with 9 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130      38.2s       52.0       67.0       56.0       56.5 4.05585996
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140      36.1s       51.0       63.0       54.5       55.2 3.18747549
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150      36.0s       50.0       69.0       54.0       55.6 5.37028863
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160      38.3s       53.0       59.0       56.5       56.2 2.22710575
+Intra-Run HoF: Replaced weakest member (with 10 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170      38.5s       53.0       62.0       54.0       55.1 2.77308492
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180      36.0s       51.0       61.0       54.5       54.9 2.73678644
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190      38.3s       51.0       65.0       54.0       55.9 4.34626276
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200      38.6s       55.0       63.0       56.5       57.8 2.74954542
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+
+Run 3 completed. Best fitness: 63.00
+Run 3 champion fitness: 63.00
+Starting Training Run 4/5 (HoF size: 0)
+
+Run 4, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10       7.8s       17.0       32.0       21.5       22.5 3.95600809
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20      33.6s       49.0       60.0       54.5       54.3 3.31813200
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30      35.7s       52.0       58.0       53.5       53.9 1.86815417
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40      38.3s       52.0       64.0       56.0       56.4 3.97994975
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50      38.3s       51.0       62.0       54.5       55.2 3.84187454
+Intra-Run HoF: Replaced weakest member (with 9 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60      35.7s       50.0       60.0       56.5       55.8 3.15594677
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70      38.3s       52.0       58.0       54.0       54.8 2.18174242
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80      38.2s       52.0       64.0       55.0       55.5 3.10644491
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90      38.4s       53.0       63.0       54.0       55.5 3.00832179
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100      36.1s       49.0       61.0       54.0       54.6 3.92937654
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110      38.4s       54.0       58.0       57.0       56.6 1.28062485
+Intra-Run HoF: Replaced weakest member (with 15 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120      38.2s       53.0       59.0       55.0       55.6 1.80000000
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130      38.2s       53.0       65.0       57.0       57.7 3.49428104
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140      36.4s       51.0       57.0       53.5       53.9 1.86815417
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150      38.3s       53.0       59.0       56.5       56.5 1.96214169
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160      38.1s       51.0       58.0       56.0       55.6 2.28910463
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170      38.5s       53.0       62.0       55.0       55.9 2.91376046
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180      35.9s       51.0       63.0       54.5       55.1 3.93573373
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190      38.2s       53.0       61.0       57.0       56.7 2.79463772
+Intra-Run HoF: Replaced weakest member (with 14 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200      38.5s       55.0       67.0       57.5       58.6 3.69323706
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Run 4 completed. Best fitness: 67.00
+Run 4 champion fitness: 67.00
+Starting Training Run 5/5 (HoF size: 0)
+
+Run 5, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10       7.6s       14.0       27.0       23.5       22.5 3.66742416
+Intra-Run HoF: Added new champion. Size: 1
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20      33.4s       51.0       55.0       52.5       53.0 1.73205081
+Intra-Run HoF: Added new champion. Size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30      36.2s       50.0       60.0       55.0       54.7 2.93428015
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40      38.6s       52.0       64.0       54.0       55.3 3.37786915
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50      38.6s       53.0       65.0       55.0       56.7 4.31393092
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60      36.3s       51.0       60.0       53.5       54.8 3.05941171
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70      38.0s       52.0       62.0       54.0       55.3 3.37786915
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80      38.6s       52.0       65.0       55.5       56.5 3.80131556
+Intra-Run HoF: Replaced weakest member (with 11 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90      38.3s       53.0       66.0       56.5       57.2 3.84187454
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100      35.9s       50.0       61.0       53.5       55.3 4.02616443
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110      38.4s       53.0       61.0       55.0       56.2 3.15594677
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120      38.4s       53.0       58.0       55.5       55.9 1.70000000
+Intra-Run HoF: Replaced weakest member (with 9 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130      38.6s       52.0       64.0       58.0       57.1 3.33016516
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140      36.1s       51.0       57.0       55.0       54.5 1.74642492
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150      38.6s       54.0       66.0       56.5       57.7 3.31813200
+Intra-Run HoF: Replaced weakest member (with 16 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160      38.2s       52.0       67.0       56.5       56.5 3.98120585
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170      38.6s       52.0       60.0       54.0       54.5 2.37697286
+Intra-Run HoF Pruning: Removing 1 weakest members.
+Intra-Run HoF: Pruning complete. New size: 2
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180      36.0s       52.0       57.0       54.0       54.5 1.74642492
+Intra-Run HoF: Added new champion. Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190      38.5s       51.0       59.0       54.5       54.3 2.28254244
+Intra-Run HoF: Replaced weakest member (with 12 defeats). Size: 3
+
+Generation Evaluation  Time (s)    Worst       Best      Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200      38.1s       53.0       63.0       54.5       56.0 3.46410162
+Intra-Run HoF: Replaced weakest member (with 13 defeats). Size: 3
+
+Run 5 completed. Best fitness: 63.00
+Run 5 champion fitness: 63.00
+
+--- Starting Final Benchmark of 5 Champions ---
+Benchmark Style: Coevolution Tournament (and HoF if active). Games x5
+  Run 1 Champion Fitness: 62.00
+  Run 2 Champion Fitness: 43.00
+  Run 3 Champion Fitness: 51.00
+  Run 4 Champion Fitness: 42.00
+  Run 5 Champion Fitness: 52.00
+
+--- Overall Training Summary ---
+Total session duration: 01:00:00 (3600.83 seconds)
+Best overall benchmark fitness: 62.00
+Best Weights (from benchmark):
+0.00000000,0.90808011,0.00000000,0.88967623,0.19067333,0.23490087,0.00000000,0.48851228,1.00000000,0.56122085,1.00000000,1.00000000,0.46760652,1.00000000,1.00000000,0.68533960,0.88092881,1.00000000,0.00000000,0.21187473
+Saving best weights to /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/eb_best_weights.txt
+CSV log for this training session is in: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250617_163713_s123_mcoevolution.csv
+========================================================================
+COMPLETED: Coevolution Mode Training HoF 4 at mar 17 jun 2025 17:37:14 CEST
+========================================================================
+
+========================================================================
+STARTING TRAINING: Fixed Mode Training HoF 0 at mar 17 jun 2025 17:37:14 CEST
+PARAMETERS: --num_games 50 --num_threads 10 --num_training 5 --max_evaluations 1000 --pop_size 100  --intra_run_hof_size 0 --evaluation_mode fixed
+========================================================================
+
+--- Configuration Summary ---
+  Number of Training Runs: 5
+  Population Size: 100
+  Max Evaluations per Run: 1000
+  Seed: 123
+  Threads for Parallelism: 10
+  Training Logs Enabled: True
+  Evaluation Mode: fixed
+  Fixed Opponent Bots: PatronFavorsBot, MaxAgentsBot, MaxPrestigeBot
+  Base Games vs Fixed Opponents: 50
+  Hall of Fame Size: 0
+  Turn Timeout: 1 seconds
+  Match Logs: NONE
+  GameRunner Verbose Output: False
+  Use Session Seed for All Matches: False
+  Weight Precision: 8
+  Log Level: INFO
+  Note: Benchmark games often use a multiplier on base game values
+---------------------------
+
+Using GameRunner executable at: /home/david/SoTAgents/ScriptsOfTribute-Core/GameRunner/bin/Debug/net8.0/GameRunner
+Master PRNG initialized with seed: 123
+Logging training data to CSV: /home/david/SoTAgents/evolutionary_bot_trainer/training_data/training_log_20250617_173714_s123_mfixed.csv
+Starting Training Run 1/5 (HoF size: 0)
+
+Run 1, Segment 1/1: Mode 'fixed', Evals: 1000, Eval offset: 0, Gen offset: 0

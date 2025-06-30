@@ -1,0 +1,92 @@
+\chapter{Diseño experimental} \label{chap:experimentacion}
+
+Esta tercera parte del TFM, aborda el diseño experimental, los resultados y las conclusiones del proyecto. Una vez descritos los componentes individuales, es decir, el agente autónomo y el sistema de entrenamiento evolutivo, el capítulo se centra en el diseño de los experimentos llevados a cabo para evaluar y comparar las distintas estrategias de optimización. El objetivo de la fase experimental no es solo encontrar el mejor conjunto de pesos posible, sino también entender cómo las diferentes configuraciones del algoritmo evolutivo afectan al proceso de aprendizaje y a la naturaleza de las soluciones encontradas. Para ello, se han diseñado una serie de experimentos que permiten analizar el impacto de factores como el modo de evaluación (fijo, coevolutivo o híbrido) y el uso de un salón de la fama.
+
+\section{Configuración de los experimentos} \label{sec:configuracion_experimentos}
+
+El diseño de los experimentos se ha centrado en responder a tres preguntas fundamentales: ¿qué combinación de estrategias en el modo híbrido produce los mejores agentes?, ¿qué modo de entrenamiento genera los mejores bots? y, ¿cuál es el impacto del salón de la fama en el rendimiento del entrenamiento? Para abordar estas cuestiones, se crearon scripts de ejecución que automatizan el lanzamiento de varios conjuntos entrenamientos, cada uno con una configuración de parámetros específica. Cada experimento se conforma de una serie de entrenamientos, los cuales a su vez realizan 5 carreras diferentes cada uno. Los resultados de estas carreras se promedian para obtener una medida más estadísticamente robusta del rendimiento de cada entrenamiento.
+
+
+\subsection{Análisis de configuraciones híbridas} \label{sec:experimentos_hibridos}
+
+Para explorar en profundidad el modo híbrido, se diseñó un experimento dedicado exclusivamente a probar una decena de configuraciones distintas. Estas configuraciones varían tanto en el número de segmentos como en la proporción de evaluaciones dedicadas a cada uno de ellos, con el objetivo de encontrar un balance óptimo entre la explotación de conocimiento (evaluación contra oponentes fijos) y la exploración de nuevas estrategias (competición coevolutiva). Dado que en este experimento se busca comparar únicamente el efecto de la variación en el parámetro que controla el orden y proporción de los segmentos que conforman el modo híbrido, se mantuvieron constantes los demás parámetros del entrenador. Esta decisión permite aislar las diferencias de rendimiento únicamente al impacto de dicho parámetro, pero también tiene un efecto colateral: el tiempo de entrenamiento de cada configuración es ligeramente diferente. Dado que el modo híbrido cuenta con diferentes proporciones de evaluaciones fijas y coevolutivas, el tiempo de entrenamiento puede variar entre cada configuración. Sin embargo, este aspecto se puede considerar como algo positivo, ya que también permite observar el rendimiento de cada configuración en función del tiempo de entrenamiento, pudiendo encontrar configuraciones que no solo sean más efectivas, sino que también sean más eficientes en términos temporales.
+
+La Tabla \ref{tab:hybrid_schedules} detalla cada una de las 10 configuraciones que se evaluaron. Para cada una, se ha calculado el número total de segmentos, el porcentaje de evaluaciones dedicadas a cada modo, y una breve descripción de la estrategia que representa. Los parámetros comunes del experimento fueron: 5 carreras de entrenamiento por experimento, una población de 10 individuos, 500 evaluaciones máximas, 200 partidas por evaluación y la desactivación tanto del salón de la fama global como del interno para aislar el efecto de la planificación híbrida. Como se han asignado 500 evaluaciones a cada entrenamiento, y cada carrera consta de 10 rondas, esto implica que cada entrenamiento se ejecuta durante un total de 50 generaciones.
+
+\small
+\begin{longtable}{@{}l p{7cm} c c c@{}}
+
+	\caption{Configuraciones de entrenamiento en modo híbrido evaluadas.}
+	\label{tab:hybrid_schedules}                                                                                                 \\
+	\toprule
+	\textbf{ID} & \textbf{Planificación (\texttt{hybrid\_schedule\_str})} & \textbf{Seg.} & \textbf{Fijo} & \textbf{Coevo} \\
+	\midrule
+	\endfirsthead
+
+	\multicolumn{5}{c}%
+	{{\bfseries -- continuación de la Tabla \thetable --}}                                                                       \\
+	\toprule
+	\textbf{ID} & \textbf{Planificación (\texttt{hybrid\_schedule\_str})} & \textbf{Seg.} & \textbf{Fijo} & \textbf{Coevo} \\
+	\midrule
+	\endhead
+
+	\bottomrule
+	\endfoot
+
+	H-1         & \texttt{fixed:0.4,coevolution:0.3,fixed:0.3}            & 3             & 70\%             & 30\%              \\
+	H-2         & \texttt{fixed:0.7,coevolution:0.3}                      & 2             & 70\%             & 30\%              \\
+	H-3         & \texttt{fixed:0.4,coevolution:0.2,fixed:0.4}            & 3             & 80\%             & 20\%              \\
+	H-4         & \texttt{fixed:0.5,coevolution:0.5}                      & 2             & 50\%             & 50\%              \\
+	H-5         & \texttt{coevolution:0.6,fixed:0.4}                      & 2             & 40\%             & 60\%              \\
+	H-6         & \texttt{coevolution:0.4,fixed:0.2, coevolution:0.4}     & 3             & 20\%             & 80\%              \\
+	H-7         & \texttt{fixed:0.8,coevolution:0.2}                      & 2             & 80\%             & 20\%              \\
+	H-8         & \texttt{coevolution:0.8,fixed:0.2}                      & 2             & 20\%             & 80\%              \\
+	H-9         & \texttt{fixed:0.3,coevolution:0.4,fixed:0.3}            & 3             & 60\%             & 40\%              \\
+	H-10        & \texttt{coevolution:0.3,fixed:0.4, coevolution:0.3}     & 3             & 40\%             & 60\%              \\
+\end{longtable}
+
+\subsection{Análisis de los modos de entrenamiento y el salón de la fama} \label{sec:experimentos_modos_entrenamiento}
+
+Para hallar el método que genera los bots con mayor porcentaje de victoria se creó un experimento que ejecuta los tres modos de entrenamiento principales (fijo, coevolutivo e híbrido) dos veces. La primera vez con el salón de la fama activado (con un tamaño de 3 individuos), y la segunda vez completamente desactivado. Por lo tanto, este segundo experimento trata de aportar información en dos frentes, tanto a nivel de modo de entrenamiento como a nivel de salón de la fama. El problema del tiempo de entrenamiento persiste en este experimento también pero, como se verá en el siguiente capítulo, los tiempos totales de entrenamiento no son tan dispares como para catalogar los resultados de injustos. La Tabla \ref{tab:main_experiments} resume las 6 configuraciones específicas que se ejecutaron. Se puede observar cómo los parámetros de ``Tamaño de Población'' y ``Evaluaciones Máximas'' son los mismos para cada experimento. En un principio se pensaba ajustar cada configuración si el tiempo de entrenamiento fuera muy dispar entre cada una, pero finalmente no fue necesario. Además, en todas las configuraciones se mantuvieron constantes las 5 carreras de entrenamiento por experimento y las 200 partidas por evaluación.
+
+\begin{table}[H]
+	\centering
+	\caption{Configuraciones para la comparativa de modos de entrenamiento y salón de la fama.}
+	\label{tab:main_experiments}
+	\begin{tabular}{@{}llcccl@{}}
+		\toprule
+		\textbf{ID} & \textbf{Modo} & \textbf{Población} & \textbf{Eval.} & \textbf{Salón F.} & \textbf{Planificación}      \\ \midrule
+		B-1         & Fijo          & 10                 & 500            & 3                 & N/A                        \\
+		B-2         & Híbrido       & 10                 & 500            & 3                 & \texttt{f:0.4,c:0.2,f:0.4} \\
+		B-3         & Coevolución   & 10                 & 500            & 3                 & N/A                        \\
+		\midrule
+		B-4         & Fijo          & 10                 & 500            & 0                 & N/A                        \\
+		B-5         & Híbrido       & 10                 & 500            & 0                 & \texttt{f:0.4,c:0.2,f:0.4} \\
+		B-6         & Coevolución   & 10                 & 500            & 0                 & N/A                        \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+\section{Métricas de evaluación} \label{sec:metricas_evaluacion}
+
+Para analizar los resultados de estos experimentos de una forma cuantitativa y visual, se desarrolló un script en Python que procesa los ficheros de datos en formato CSV generados por el entrenador. Este script genera un conjunto de gráficas que permiten evaluar y comparar el rendimiento de las diferentes configuraciones a través de varias métricas clave.
+
+Una de las métricas principales es la evolución del \textit{fitness} a lo largo de las generaciones. Se genera una gráfica de líneas que muestra el \textit{fitness} máximo, medio y mínimo, promediado a través de todas las carreras de entrenamiento de un mismo experimento. Esta visualización pretende utilizarse para entender la velocidad de convergencia y si el algoritmo se estanca se ha estancado.
+
+Otra de las áreas de análisis se centra en la convergencia y distribución de los pesos del genoma, generando para ello dos tipos de gráficas. Primero, un mapa de calor que muestra la evolución del valor promedio de cada uno de los 20 pesos a lo largo de las generaciones. Segundo, un diagrama de barras que presenta el valor medio final de cada peso en la última generación. Estas gráficas permiten analizar si el algoritmo converge hacia soluciones ``generalistas'', donde muchos pesos tienen valores moderados, o hacia soluciones ``especialistas'', donde unos pocos pesos tienden a valores extremos (cercanos a 0 o 1), indicando que el bot ha aprendido a priorizar unas pocas heurísticas muy específicas. Por último, también se cuenta con un diagrama tipo \textit{Box plot} para visualizar la distribución de los pesos en la última generación. El script permite generar todas estas gráficas tanto de los campeones de cada generación como de la media de los pesos de los individuos de cada generación, lo que proporciona una visión desde varios ángulos del proceso de entrenamiento.
+
+Además de gráficas, también se ha desarrollado un script dedicado a evaluar los pesos finales de cada experimento. La métrica de rendimiento definitiva es el benchmark que se ejecuta al concluir cada entrenamiento. En esta fase, los campeones de cada carrera compiten entre sí para determinar al ganador absoluto, cuya tasa de victorias en este torneo final se considera la medida última del éxito de esa configuración de entrenamiento. Tras esto, de entre los campeones de cada entrenamiento (que ya son los campeones de su conjunto de carreras), se realiza un segundo torneo final para determinar el campeón absoluto de ese experimento. Este último torneo se ejecuta contra un conjunto de bots fijos, que actúan como una referencia estable para evaluar el rendimiento del agente entrenado en un contexto parecido al de la competición real CoG.
+
+Estos dos scripts para la generación de gráficas y benchmarking de agentes, cuyos resultados se mostrarán en el siguiente capítulo, demuestran el cumplimiento del objetivo específico \textbf{OG4} del proyecto, que se centra en el desarrollo de herramientas para la visualización y análisis de los datos generados durante el entrenamiento.
+
+\subsection{Bots de referencia} \label{sec:bots_referencia}
+
+Durante toda esta memoria se ha hecho alusión a los agentes autónomos que se han usado en el modo fijo y en los torneos finales para evaluar el rendimiento de los agentes evolutivos. Estos bots de referencia vienen incluidos en \textit{Scripts of Tribute-Core} y utilizan diferentes algoritmos y heurísticas para cumplir su función. A día de la redacción de este documento, existen 7 bots de referencia más el bot \textit{Random}, que actúa como un agente completamente aleatorio. Lastimosamente, no todos funcionan sin errores. La razón de estos problemas de ejecución es la misma por la que no se han podido utilizar los bots ganadores de competiciones anteriores durante el entrenamiento evolutivo: el motor de simulación SoT se ha actualizado con nuevas funciones y cambios en la API, lo que ha provocado que algunos bots antiguos no sean compatibles con la versión actual del motor. Se contactó con los creadores de SoT para intentar que solucionaran estos problemas de incompatibilidad y, si bien están dispuestos a arreglar los bots en algún momento, la prioridad para ellos es el motor en sí. Por lo tanto, los agentes que sí se han podido utilizar son:
+
+\begin{itemize}
+	\item \textbf{PatronFavorsBot}: bot simple que se centra en ganar el favor de los patrones a toda costa. En cada movimiento comprueba si puede ganar el favor de un patrón y, si no es así, realiza un movimiento aleatorio.
+	\item \textbf{MaxAgentsBot}: este también es un bot simple, en este caso se centra en maximizar el número de agentes que tiene en el tablero. En cada movimiento, comprueba si puede comprar o colocar un agente, y si no es así, realiza un movimiento aleatorio. Además, para elegir entre los bots a comprar o colocar utiliza una heurística que prioriza las cartas de una mejor calidad.
+	\item \textbf{MaxPrestigeBot}: similar a los bots anteriores, este bot se centra en maximizar su puntuación de prestigio. Para cada acción posible, evalúa cual es la que le otorga más puntos de prestigio y la ejecuta. Si no puede realizar ninguna acción que le otorgue puntos, realiza un movimiento aleatorio.
+	\item \textbf{DecisionTreeBot}: este es el único bot que no se basa en una heurística simple, sino que utiliza un árbol de decisión diseñado por un experto. Es decir, es un bot con un esquema de funcionamiento completamente opuesto al \textit{EvolutionaryBot} de este proyecto, ya que está diseñado para tomar decisiones basadas en un conjunto de reglas fijas y no evoluciona ni aprende de la experiencia. En lugar de evaluar y puntuar todos los movimientos posibles de forma unificada, el bot sigue una secuencia predefinida: primero intenta jugar las cartas de su mano, si no es posible, considera comprar cartas de la taberna, después activar un patrón, y así sucesivamente hasta encontrar una acción válida. La complejidad de este agente no reside en una función de evaluación ponderada, sino en las heurísticas específicas que gobiernan cada tipo de decisión. Por ejemplo, para decidir qué carta jugar, no elige simplemente la que da más recursos, sino que utiliza una lógica sofisticada que clasifica las cartas en mano según su potencial de combo. En ocasiones, ``sacrifica'' una carta de bajo potencial para preparar el terreno y maximizar los efectos de combo de las cartas que jugará a continuación. De forma similar, para la compra de cartas, utiliza una función heurística que valora la sinergia (favoreciendo cartas de patrones que ya posee) y la calidad general de la carta. Durante la primera fase del proyecto se estudió este bot con detalle, pues su autor claramente tenía un conocimiento profundo del juego y de las estrategias óptimas (algo que no se puede decir del autor de esta memoria). El resultado de esos estudios fueron las heurísticas específicas que el \textit{EvolutionaryBot} utiliza para evaluar la compra y uso de cartas específicas.
+\end{itemize}
+
+En cada evaluación fija, el número máximo de partidas configurado se reparte entre estos cuatro bots de referencia, ocurriendo la mitad para cada uno como P1 y la otra mitad como P2. Si por ejemplo el número fuera 200, en la evaluación del \textit{fitness} de un individuo se jugarían 50 partidas contra cada uno de los bots de referencia, 25 como P1 y 25 como P2.

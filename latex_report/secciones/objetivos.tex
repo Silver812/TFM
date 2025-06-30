@@ -1,0 +1,23 @@
+\chapter{Objetivos} \label{chap:objetivos}
+% Definir lo que se busca conseguir con el TFM
+
+El contenido de este capítulo explica los objetivos principales del proyecto, que tratan de enmarcar el software desarrollado y el conocimiento adquirido, y también los objetivos específicos, los cuales detallan en mayor medida los pasos que se han seguido para completar el trabajo.
+
+\section{Objetivos principales} \label{sec:objetivo_principal}
+
+Los objetivos principales de este Trabajo de Fin de Máster representan dos metas entrelazadas. En primer lugar, ahondar en la investigación y entendimiento de un área tan extensa como las metaheurísticas, y en concreto los algoritmos evolutivos. La optimización de soluciones a problemas complejos mediante técnicas que tratan de incluir conocimiento específico, unido a la generación iterativa de otras soluciones parciales, es un campo de estudio con un gran número de aplicaciones prácticas. Aunque el teorema de ``No Free Lunch'' nos advierte de que no existe una única técnica que sea la mejor para todos los problemas y desde todas las perspectivas \cite{wolpert_no_1997}, la experiencia empírica ha demostrado que los algoritmos evolutivos son una herramienta que se puede aplicar a la gran mayoría de problemas de optimización \cite{torres-jimenez_applications_2014}.
+
+Es precisamente esa versatilidad la que ha propiciado su uso durante el desarrollo del segundo objetivo principal de este proyecto: la creación de un bot para un videojuego de cartas. Este tipo de videojuegos cuentan con un inmenso número de variables, pues no solo se deben de tener en cuenta las cartas existentes en las manos de cada jugador y en la pila de cartas, sino también las mecánicas\footnote{Gran parte de lo que define un juego es sus mecánicas, sus reglas, lo que los jugadores deben llevar a cabo para ganar. La labor del creador de videojuegos es conseguir un conjunto de reglas que estén equilibradas y permitan disfrutar a los jugadores \cite{wikipedia_diseno_2025}.} intrínsecas del juego, como la vida, los recursos de compra, la posibilidad de recuperar cartas usadas, o el uso de otro tipo de habilidades especiales. Todo esto hace que la creación de un bot que juegue a alto nivel a un videojuego de este estilo sea un reto interesante, y que el uso de técnicas de optimización evolutiva sea una herramienta adecuada para la optimización de su rendimiento.
+
+\section{Objetivos específicos} \label{sec:objetivos_especificos}
+
+% Objetivos del formulario de petición de tema:
+\begin{itemize}
+	\item OG1: Analizar en profundidad las mecánicas del juego ``Tales of Tribute'', el entorno de desarrollo ``Scripts of Tribute'' y adquirir las competencias necesarias en el lenguaje de programación C\#.
+	\item OG2: Diseñar e implementar un agente inteligente en C\# para ``Scripts of Tribute'', cuya toma de decisiones se base en una evaluación heurística del estado del juego mediante una función de fitness ponderada, incorporando conocimiento específico del dominio.
+	\item OG3: Desarrollar un programa de optimización en Python para ajustar los pesos de la función de fitness del agente, implementando y comparando dos estrategias principales: algoritmos coevolutivos y entrenamiento supervisado contra agentes de referencia de ``Scripts of Tribute''.
+	\item OG4: Desarrollar un conjunto de herramientas para la visualización y análisis de los datos generados durante el entrenamiento.
+	\item OG5: Evaluar cuantitativamente el rendimiento del agente entrenado mediante las diferentes estrategias, utilizando métricas relevantes.
+	\item OG6: Analizar comparativamente la efectividad y eficiencia de las estrategias de optimización implementadas, discutiendo sus ventajas y desventajas en el contexto específico de ``Scripts of Tribute''.
+	\item OG7: Investigar y contextualizar el enfoque desarrollado frente a otras técnicas predominantes en competiciones similares de IA en juegos, analizando las razones de su éxito.
+\end{itemize}

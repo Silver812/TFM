@@ -1,0 +1,114 @@
+\chapter{Diseño del agente autónomo} \label{chap:software_bot}
+
+En este capítulo se desglosa el diseño y la implementación del agente autónomo. El enfoque principal se centra en un sistema de toma de decisiones que evalúa cada acción posible mediante una función de puntuación ponderada, cuyos pesos son optimizados por el algoritmo evolutivo descrito en el siguiente capítulo. A continuación, se detallará la arquitectura de este sistema, la definición de los pesos que conforman su ``genoma'' y las lógicas específicas y heurísticas que complementan su comportamiento.
+
+\section{Arquitectura de la toma de decisiones} \label{sec:arquitectura_toma_decisiones}
+
+El comportamiento del agente se basa en una estrategia de decisión voraz con un horizonte de planificación de un solo paso. Cuando el bot debe realizar una acción, el motor del juego le proporciona una lista de todos los movimientos legalmente posibles. Para cada uno de estos movimientos, el bot realiza una simulación interna para averiguar como cambiaría el estado de la partida al aplicarlo. A este nuevo estado se le asigna una puntuación numérica a través de una función de evaluación heurística. Finalmente, el bot selecciona y ejecuta de forma determinista el movimiento que conduce al estado con la puntuación más alta, repitiendo este ciclo hasta que la acción elegida sea la de finalizar el turno. Esto contrasta con el enfoque de MCTS, pues en dicho algoritmo no se simula solo un movimiento, sino la partida entera en múltiples posibles ramificaciones. Una de las ventajas del enfoque voraz es su rapidez, en ningún momento se llegaría ni al límite de tiempo de 10 segundos por turno, ni al de memoria de 256 MB, lo que permite al bot tomar decisiones incluso en situaciones de alta presión temporal. Además, aunque el enfoque MCTS podría ofrecer una mejor exploración de las posibles jugadas, también es cierto que cuanto más se aleja del estado actual de la partida, más incertidumbre hay sobre el valor de las jugadas debido a la alta estocasticidad del juego y menos valor tendría la evaluación de un estado futuro lejano.
+
+El punto más importante este sistema es la función de evaluación, ``ScoreMove'', que calcula la idoneidad de un estado del juego. Esta función es la que ejecuta la evaluación lineal ponderada, donde se calculan las diferencias entre el estado del juego antes y después de la jugada simulada a través de un conjunto de características. Cada una de estas características se multiplica por un peso específico, y la suma (o resta, en caso de gestionar datos relativos al contrincante) de todos estos componentes da como resultado la puntuación final de la acción.
+
+La fórmula general que representa este cálculo se puede expresar según la ecuación \ref{eq:puntuacion_movimiento}:
+
+\begin{equation}
+\text{Puntuación}(m) = \sum_{i=1}^{n} w_i \cdot \Delta f_i(E_{t+1}, E_t) \label{eq:puntuacion_movimiento}
+\end{equation}
+
+Donde $\text{Puntuación}(m)$ es el valor asignado al movimiento $m$, $n$ es el número total de características evaluadas, $w_i$ es el peso asociado a la característica $i$, y $\Delta f_i$ es la función que calcula la diferencia de valor de dicha característica entre el estado resultante $E_{t+1}$ y el estado original $E_t$. Para garantizar que la comparación entre los diferentes movimientos sea reproducible, todas las simulaciones de acciones se realizan utilizando una semilla constante, lo que elimina la estocasticidad de ciertos eventos del juego, como el robo de cartas de la taberna. En el siguiente pseudocódigo se muestra el bucle de evaluación que sigue el bot para cada uno de los posibles movimientos:
+
+\begin{algorithm}[H]
+    \caption{Selección de la Mejor Acción en un Turno}
+    \label{alg:get_best_move}
+    \begin{algorithmic}[1]
+        \State \Comment{Lógica interna del agente para elegir una acción en el estado de juego actual $S$.}
+        \State \textbf{Entradas:} Estado del juego $S$, Lista de acciones posibles $A = \{a_1, ..., a_n\}$, Pesos $\vec{w}$.
+        \State
+        \State $\text{mejorAcción} \leftarrow \text{AcciónAleatoria}(A)$
+        \State $\text{mejorPuntuación} \leftarrow -\infty$
+        \State
+        \State \textbf{para cada} acción $a_i \in A$ \textbf{hacer}
+        \State \quad \textbf{si} $a_i$ es ``Pasar Turno'' \textbf{entonces}
+        \State \qquad $\text{puntuación} \leftarrow -1$
+        \State \quad \textbf{sino}
+        \State \qquad $S_{t+1} \leftarrow \text{Simular}(S, a_i)$
+        \State \qquad $\text{puntuación} \leftarrow \text{Evaluar}(S_{t+1}, S, \vec{w})$ \Comment{Usa la Ecuación \ref{eq:puntuacion_movimiento}.}
+        \State \quad \textbf{fin si}
+        \State
+        \State \quad \textbf{si} $\text{puntuación} > \text{mejorPuntuación}$ \textbf{entonces}
+        \State \qquad $\text{mejorPuntuación} \leftarrow \text{puntuación}$
+        \State \qquad $\text{mejorAcción} \leftarrow a_i$
+        \State \quad \textbf{fin si}
+        \State \textbf{fin para}
+        \State
+        \State \textbf{devolver} $\text{mejorAcción}$
+    \end{algorithmic}
+\end{algorithm}
+
+\section{Definición de los pesos} \label{sec:definicion_pesos}
+
+El comportamiento estratégico del bot está enteramente definido por un conjunto de \textbf{20 pesos numéricos}. Este vector de valores representa el ``genoma'' de un individuo dentro del algoritmo evolutivo. Cada peso está asociado a una característica específica del juego, permitiendo al proceso de optimización ajustar con precisión la forma en que el bot valora cada aspecto de la partida. La Tabla \ref{tab:pesos_ebw} detalla cada uno de estos pesos y su función dentro de la evaluación.
+
+La transferencia de estos pesos desde el entrenador al bot es un componente clave del sistema. Para evitar la sobrecarga de reescribir ficheros constantemente, el mecanismo principal se basa en el uso de variables de entorno. El script de Python convierte el genoma de un individuo (un array de 20 números) en una cadena de texto separada por comas. Esta cadena se asigna a una variable de entorno antes de lanzar el proceso del ``GameRunner''. Al iniciarse, el bot detecta estas variables, las lee, y utiliza sus valores para configurar la función de evaluación para esa partida en concreto.
+
+	{\scriptsize
+		\setlength{\tabcolsep}{4pt}
+		\begin{longtable}{@{}l>{\tiny\raggedright\arraybackslash}p{2.2cm}p{0.65\textwidth}@{}}
+			\caption{Descripción de los pesos del genoma del agente evolutivo.} \label{tab:pesos_ebw}                                                                                       \\
+
+			\toprule
+			\textbf{Categoría} & \textbf{Peso (Enum)} & \textbf{Descripción}                                                                                                                \\
+			\midrule
+			\endfirsthead
+
+			\multicolumn{3}{c}{{\tablename\ \thetable{} -- Continuación}}                                                                                                                   \\
+			\toprule
+			\textbf{Categoría} & \textbf{Peso (Enum)} & \textbf{Descripción}                                                                                                                \\
+			\midrule
+			\endhead
+
+			\midrule
+			\multicolumn{3}{r}{{Continúa en la siguiente página}}                                                                                                                           \\
+			\endfoot
+
+			\bottomrule
+			\endlastfoot
+
+			\multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}Agentes y\\ Combate\end{tabular}}
+			                   & A\_HEALTH\_ REDUCED  & Penalización por el daño recibido por un agente propio, o bonificación por el daño infligido a un agente enemigo.                   \\
+			                   & A\_KILLED            & Penalización si un agente propio es destruido, o bonificación equivalente si se destruye un agente enemigo.                         \\
+			                   & A\_OWN\_AMOUNT       & Pondera la importancia de tener un mayor número de agentes en el tablero.                                                           \\
+			                   & A\_ENEMY\_ AMOUNT    & Pondera la importancia de que el enemigo tenga un mayor número de agentes en el tablero.                                            \\
+			\midrule
+			\multirow{8}{*}{\begin{tabular}[c]{@{}l@{}}Recursos y\\ Cartas\end{tabular}}
+			                   & CURSE\_REMOVED       & Bonificación por eliminar una carta de maldición del propio mazo.                                                                   \\
+			                   & C\_TIER\_POOL        & Valor asignado a las cartas del mazo según una clasificación de tier predefinida.                                                   \\
+			                   & C\_TIER\_TAVERN      & Penalización por dejar cartas de tier alto disponibles para el oponente en la taberna.                                              \\
+			                   & C\_GOLD\_COST        & Valor asignado a las cartas en función de su coste en oro.                                                                          \\
+			                   & C\_OWN\_COMBO        & Bonificación por tener varias cartas del mismo patrón en el mazo, aumentando el potencial de combo.                                 \\
+			                   & C\_ENEMY\_COMBO      & Pondera el potencial de combo del mazo del oponente.                                                                                \\
+			                   & COIN\_AMOUNT         & Pondera la diferencia de monedas generadas en un turno.                                                                             \\
+			                   & POWER\_AMOUNT        & Pondera la diferencia de poder generado en un turno.                                                                                \\
+			                   & PRESTIGE\_AMOUNT     & Pondera la diferencia de prestigio ganado o perdido.                                                                                \\
+			                   & H\_DRAFT             & Peso que se utiliza como multiplicador defensivo para valorar la acción de quitarle una carta útil al oponente (``hate drafting''). \\
+			\midrule
+			\multirow{5}{*}{\begin{tabular}[c]{@{}l@{}}Cartas\\ Específicas\end{tabular}}
+			                   & T\_TITHE             & Valor asignado a la carta ``Tithe'', que permite una activación de patrón adicional.                                                \\
+			                   & T\_BLACK\_ SACRAMENT & Valor asignado a ``Black Sacrament'', que permite destruir un agente enemigo.                                                       \\
+			                   & T\_AMBUSH            & Valor asignado a ``Ambush'', que permite destruir hasta dos agentes enemigos.                                                       \\
+			                   & T\_BLACKMAIL         & Valor asignado a ``Blackmail'', que proporciona poder o prestigio.                                                                  \\
+			                   & T\_IMPRISONMENT      & Valor asignado a ``Imprisonment'', similar a ``Blackmail'' pero con mayor potencial.                                                \\
+			\midrule
+			\multirow{1}{*}{Patrones}
+			                   & P\_AMOUNT            & Valor asignado a cualquier acción que cambie el favor de un patrón.                                                                 \\
+		\end{longtable}
+	}
+
+\section{Lógicas específicas y heurísticas} \label{sec:logicas_especificas}
+
+Para aquellos casos especiales en los que el bot puede no ser capaz de discernir la importancia de una jugada, como es el caso de la aparición en la taberna de ciertas cartas importantes, se implementaron una serie de lógicas específicas y heurísticas codificadas manualmente pero con su propio peso asignado.
+
+El ejemplo más representativo se encuentra en la función ``CalculateTavernScore''. Esta función no evalúa el valor de adquirir una carta de la taberna para uno mismo, sino que calcula el valor estratégico de eliminarla de la taberna para que el oponente no pueda adquirirla. Esta técnica, popularmente denominada como \textbf{hate drafting}, se implementó tras ver a algunos jugadores explicar sus movimientos mientras jugaban. En los vídeos se observaba que a veces preferían quitarle una carta al oponente aunque no les fuera útil a ellos mismos, pues que el rival la utilizase sería peor que los recursos gastados en comprar la carta. Este cálculo es puramente heurístico y depende del estado actual de la partida. Por ejemplo, para la carta ``Tithe'', que permite una activación de patrón adicional, el bot la valora más positivamente de forma defensiva (es decir, quitarla para que el oponente no la compre) si el oponente está cerca de alcanzar la victoria por prestigio, ya que un turno con dos acciones de patrón podría ser decisivo para él. De forma similar, se evalúan otras cartas clave como ``Ambush'', cuyo valor aumenta exponencialmente cuantos más agentes tenga el oponente en el tablero.
+
+Además de esta lógica centrada en la taberna, existen otras heurísticas integradas en la evaluación. En ``CalculateScoreAgents'', por ejemplo, se diferencia entre simplemente dañar a un agente y destruirlo por completo, asignando una penalización mucho mayor a esto último. Asimismo, en la función ``ComputeCardPoolValue'' se aplica una lógica especial para las cartas de \textbf{maldición}: tenerlas en el propio mazo es negativo, pero conseguir que el oponente adquiera una es positivo. Esta combinación de una función de evaluación general y optimizable con heurísticas específicas para casos concretos intenta unificar el conocimiento del jugador con la potencia bruta de la optimización evolutiva. El sistema evolutivo se encarga de ajustar el comportamiento general, mientras que el conocimiento codificado en las heurísticas garantiza que el bot actúe de forma decisiva en momentos clave de la partida.
+
+El desarrollo del bot marca el cumplimiento del \textbf{OG2}, que establece el diseño e implementación un agente inteligente en C\# para \textit{Scripts of Tribute}, cuya toma de decisiones se base en una evaluación heurística del estado del juego mediante una función de fitness ponderada, incorporando conocimiento específico del dominio.

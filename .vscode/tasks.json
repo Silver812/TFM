@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "dotnet",
+            "task": "build ${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/GameRunner.csproj",
+            "file": "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/GameRunner.csproj",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "label": "Build GameRunner",
+            "dependsOn": "Copy Bots.dll"
+        },
+        {
+            "type": "dotnet",
+            "task": "build ${workspaceFolder}/ScriptsOfTribute-Core/Bots/Bots.csproj",
+            "file": "${workspaceFolder}/ScriptsOfTribute-Core/Bots/Bots.csproj",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "Build Bots"
+        },
+        {
+            "label": "Copy Bots.dll",
+            "type": "shell",
+            "command": "cp",
+            "windows": {
+                "command": "copy" // Windows uses copy instead of cp
+            },
+            "args": [
+                "${workspaceFolder}/ScriptsOfTribute-Core/Bots/bin/Debug/netstandard2.1/Bots.dll",
+                "${workspaceFolder}/ScriptsOfTribute-Core/GameRunner/Bots.dll"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Build Bots"
+        }
+    ]
+}

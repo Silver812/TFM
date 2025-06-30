@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment LaTeX Template Version 1.0 (5/5/12)
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper]{book}
+
+% Desactiva la distribución vertical automática
+\raggedbottom
+
+% PAQUETES ------------------------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% Selecciona el español para palabras introducidas automáticamente, p.ej. "septiembre" en la fecha y especifica que se use la palabra Tabla en vez de Cuadro
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+% Manejo de símbolos de cita múltiples
+\usepackage{csquotes}
+% Figuras e imágenes
+\usepackage{graphics, graphicx, float}
+% Permite dar estilo a los subtítulos de las figuras (leyendas)
+\usepackage{caption}
+% Permite sub-leyendas en sub-figuras (figuras dentro de figuras)
+\usepackage{subcaption}
+% Permite múltiples filas en tablas
+\usepackage{multirow}
+% Elimina numeración de paginas en blanco
+\usepackage{emptypage}
+% Añade más funcionalidades a las listas
+\usepackage{enumitem}
+% Introduce la bibliografía en el índice
+\usepackage[nottoc]{tocbibind}
+% Permite continuar con la numeración entre listas distintas
+% \usepackage{fourier} % Use the Adobe Utopia font for the document
+\usepackage{url} % ,href} %para incluir URLs e hipervínculos dentro del texto (aunque hay que instalar href)
+% Para incluir el símbolo del euro
+\usepackage[gen]{eurosym} 
+\usepackage{cite} %para incluir citas del archivo <nombre>.bib
+% \usepackage{enumerate}
+% Permite añadir comentarios multilínea que no se mostrarán en el PDF final
+\usepackage{comment}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+% Marca en rojo los elementos pendientes (TO-DOs)
+\newcommand{\todo}[1]{\textcolor{orange}{TODO: #1}}
+% Permite que el contador de footnotes no se reinicie en cada capítulo
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+% Diagramas de Gantt
+\usepackage{tikz}
+\usepackage{pgfgantt}
+% Formato apaisado
+\usepackage{pdflscape}
+% Permite crear tablas largas que se dividen en varias páginas
+\usepackage{longtable}
+% Permite crear tablas con celdas de ancho variable
+\usepackage{array}
+% Para el pseudo-código
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% ESTILOS DE PAGINA ------------------------------------------------------------------
+\renewcommand{\familydefault}{\sfdefault}
+% Modificar encabezamientos y pie de páginas
+\usepackage{fancyhdr}
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead[L]{} % Empty left header
+\fancyhead[C]{} % Empty center header
+% \fancyhead[R]{Francisco David Castejón Soto} % Nombre del autor en el encabezado derecho
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+\setcounter{secnumdepth}{4}
+\usepackage[Lenny]{fncychap}
+
+% For code snippets
+\usepackage{minted}
+\usemintedstyle{colorful}
+% Control de enlaces hipertexto en el documento. Este paquete debe cargarse el último.
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,	% false: boxed links; true: colored links
+	linkcolor=black,	% color of internal links
+	urlcolor=cyan		% color of external links
+}
+
+% Información del documento ---------------------------------------------------------
+\author{Francisco David Castejón Soto}
+\title{Desarrollo y Optimización de un Agente Inteligente para Scripts of Tribute mediante Algoritmos Evolutivos}
+\date{\today}
+
+% DOCUMENTO -------------------------------------------------------------------------
+\begin{document}
+
+% Páginas preliminares sin numeración
+\frontmatter
+
+\input{portada/portada}
+\input{prefacios/prefacio}
+\input{prefacios/agradecimientos}
+\input{prefacios/abstract}
+
+% Índices
+\cleardoublepage
+\tableofcontents
+
+\cleardoublepage
+\listoffigures
+
+\cleardoublepage
+\listoftables
+
+% Contenido principal
+\mainmatter
+
+\part{Marco teórico} \label{part:idea}
+\input{secciones/introduccion}
+\input{secciones/objetivos}
+\input{secciones/antecedentes}
+\input{secciones/tales_of_tribute}
+\input{secciones/planificacion}
+
+\part{Metodología} \label{part:preparacion}
+\input{secciones/software_bot}
+\input{secciones/software_entrenador}
+
+\part{Experimentación y conclusiones} \label{part:resultados}
+\input{secciones/experimentacion}
+\input{secciones/resultados}
+\input{secciones/conclusiones}
+
+% Material de referencia
+\backmatter
+
+% % Bibliografía
+\cleardoublepage
+\bibliographystyle{plainurl}
+\bibliography{bibliografia}
+
+% \appendix
+% \input{apendices/codigo}
+
+\end{document}
