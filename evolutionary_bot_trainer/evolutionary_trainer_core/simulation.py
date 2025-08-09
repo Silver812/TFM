@@ -1,73 +1,17 @@
-import os
+import os, sys
 import logging
 import subprocess
 from pathlib import Path
 from typing import Tuple, Optional, Dict, List
-
-from sympy import O
-
 from .config import Config
 from .utils import individual_to_commandline
 
 logger = logging.getLogger(__name__)
 
-# Store original environment variables relevant to the bot's weights
-_original_env_vars_snapshot: Dict[str, Optional[str]] = {}
-_env_vars_managed = ["EVO_BOT_P1_WEIGHTS", "EVO_BOT_P2_WEIGHTS", "EVOLUTIONARY_BOT_WEIGHTS"]  # Generic one if P1/P2 specific are not used
-
-
-def snapshot_original_env_vars():
-    """Take a snapshot of critical environment variables."""
-    
-    global _original_env_vars_snapshot
-    if not _original_env_vars_snapshot:
-        for var_name in _env_vars_managed:
-            _original_env_vars_snapshot[var_name] = os.environ.get(var_name)
-
-
-def clear_managed_env_vars():
-    """Clear the managed environment variables."""
-    
-    for var_name in _env_vars_managed:
-        if var_name in os.environ:
-            try:
-                del os.environ[var_name]
-            except Exception as e:
-                logger.warning(f"Could not delete env var {var_name}: {e}")
-
-
-def set_env_vars_for_match(
-    p1_weights_str: Optional[str] = None, p2_weights_str: Optional[str] = None, default_evo_weights_str: Optional[str] = None
-) -> None:
-    """Set environment variables for bot weights for a match."""
-    
-    snapshot_original_env_vars()
-    clear_managed_env_vars()
-
-    if p1_weights_str:
-        os.environ["EVO_BOT_P1_WEIGHTS"] = p1_weights_str
-    if p2_weights_str:
-        os.environ["EVO_BOT_P2_WEIGHTS"] = p2_weights_str
-
-    if default_evo_weights_str:
-        if p1_weights_str or p2_weights_str:
-            logger.warning("Default weights provided alongside P1/P2 weights; default may be ignored.")
-        os.environ["EVOLUTIONARY_BOT_WEIGHTS"] = default_evo_weights_str
-
-
-def restore_env_vars() -> None:
-    """Restore environment variables from the initial snapshot."""
-    
-    clear_managed_env_vars()
-
-    for var_name, original_value in _original_env_vars_snapshot.items():
-        if original_value is not None:
-            os.environ[var_name] = original_value
-
 
 def get_game_runner_path(config: Config) -> Optional[Path]:
     """Determine the path to GameRunner executable."""
-    
+
     script_dir = Path(__file__).resolve().parent  # evolutionary_trainer_core
     project_root = script_dir.parent  # evolutionary_bot_trainer
     workspace_dir = project_root.parent
@@ -96,18 +40,27 @@ def simulate_match(
     game_runner_exe_path: Path,
     p1_weights: Optional[List[float]] = None,
     p2_weights: Optional[List[float]] = None,
-    default_evo_weights: Optional[List[float]] = None,
-    threads: Optional[int] = None
+    threads: Optional[int] = None,
 ) -> Tuple[int, int]:
     """Simulate matches between two bots and return (p1_wins, p2_wins)."""
-    
+
     if num_games <= 0:
         return 0, 0
 
-    # Convert weights to strings
-    p1_weights_str = individual_to_commandline(p1_weights, current_config.weight_precision) if p1_weights else None
-    p2_weights_str = individual_to_commandline(p2_weights, current_config.weight_precision) if p2_weights else None
-    default_weights_str = individual_to_commandline(default_evo_weights, current_config.weight_precision) if default_evo_weights else None
+    # Create a copy of the current environment to avoid modifying the global state
+    match_env = os.environ.copy()
+
+    # Convert weights to strings and add them to our custom environment copy
+    if p1_weights:
+        match_env["EVO_BOT_P1_WEIGHTS"] = individual_to_commandline(p1_weights, current_config.weight_precision)
+    if p2_weights:
+        match_env["EVO_BOT_P2_WEIGHTS"] = individual_to_commandline(p2_weights, current_config.weight_precision)
+        
+    # Keep .NET runtime lightweight per GameRunner process
+    match_env.setdefault("DOTNET_gcServer", "0")                     # disable server GC
+    match_env.setdefault("COMPlus_gcServer", "0")                    # older/runtime-specific
+    match_env.setdefault("DOTNET_ThreadPool_ForceMinThreads", "1")   # small thread pool
+    match_env.setdefault("COMPlus_ThreadPool_ForceMinWorkerThreads", "1")
 
     # Calculate process timeout
     estimated_turns_per_game = 70
@@ -119,9 +72,6 @@ def simulate_match(
         process_timeout = (3600 * num_games) + safety_buffer  # 1 hour per game + buffer
 
     try:
-        set_env_vars_for_match(p1_weights_str, p2_weights_str, default_weights_str)
-        game_runner_dir = game_runner_exe_path.parent
-
         # Build command
         cmd = [
             str(game_runner_exe_path),
@@ -137,25 +87,31 @@ def simulate_match(
 
         if current_config.seeded_match:
             cmd.extend(["--seed", str(current_config.seed)])
-            
+
         if threads is not None and threads > 0:
             cmd.extend(["--threads", str(threads)])
 
         # Log debug info if requested
         if current_config.debug:
-            p1_info = f"{p1_weights_str[:25]}..." if p1_weights_str else "N/A"
-            p2_info = f"{p2_weights_str[:25]}..." if p2_weights_str else "N/A"
-            def_info = f"{default_weights_str[:25]}..." if default_weights_str else "N/A"
+            p1_str = match_env.get("EVO_BOT_P1_WEIGHTS")
+            p2_str = match_env.get("EVO_BOT_P2_WEIGHTS")
 
-            logger.debug(
-                f"Simulating: {p1_bot_type} (P1: {p1_info}) vs {p2_bot_type} (P2: {p2_info}) " f"for {num_games} games. Default: {def_info}"
-            )
+            p1_info = f"{p1_str[:25]}..." if p1_str else "N/A"
+            p2_info = f"{p2_str[:25]}..." if p2_str else "N/A"
+
+            logger.debug(f"Simulating: {p1_bot_type} (P1: {p1_info}) vs {p2_bot_type} (P2: {p2_info}) " f"for {num_games} games.")
             logger.debug(f"Command: {' '.join(cmd)}")
             logger.debug(f"Timeout: {process_timeout}s")
 
         # Run simulation
         process = subprocess.run(
-            cmd, env=os.environ.copy(), cwd=str(game_runner_dir), capture_output=True, text=True, timeout=process_timeout, check=False
+            cmd,
+            env=match_env,
+            cwd=str(game_runner_exe_path.parent),
+            capture_output=True,
+            text=True,
+            timeout=process_timeout,
+            check=False,
         )
 
         p1_wins = p2_wins = 0
@@ -171,6 +127,7 @@ def simulate_match(
                 logger.warning(f"Stderr: {process.stderr[:500].strip()}...")
         else:
             output = process.stdout
+
             if current_config.verbose_gamerunner:
                 logger.info(f"GameRunner Output ({p1_bot_type} vs {p2_bot_type}):\n{output[:1000]}...")
 
@@ -209,5 +166,3 @@ def simulate_match(
         if current_config.debug:
             logger.exception("Traceback:")
         return 0, 0
-    finally:
-        restore_env_vars()

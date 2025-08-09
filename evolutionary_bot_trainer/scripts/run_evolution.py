@@ -1,5 +1,11 @@
 import os
-import gc
+
+# Keep numerical libs single-threaded in main and inherited by workers
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
+
 import sys
 import csv
 import time
@@ -19,125 +25,80 @@ try:
     from evolutionary_trainer_core.simulation import get_game_runner_path
     from evolutionary_trainer_core.benchmark import run_final_benchmark, save_best_weights
     from evolutionary_trainer_core.config import get_config_from_args, log_config_summary
-    from evolutionary_trainer_core.utils import ensure_directory_exists, individual_to_commandline
+    from evolutionary_trainer_core.utils import ensure_directory_exists, individual_to_commandline, generate_config_summary
 except ImportError as e:
     print(f"Error importing necessary modules: {e}", file=sys.stderr)
     print("Please ensure all dependencies are installed and the project structure is correct.", file=sys.stderr)
     print(f"Current sys.path includes: {project_root_dir}", file=sys.stderr)
     sys.exit(1)
+    
 
-# Setup logging
-logger = logging.getLogger()
-console_handler = logging.StreamHandler(sys.stdout)
-console_handler.setFormatter(logging.Formatter("%(message)s"))
-logger.addHandler(console_handler)
-
-
-def setup_csv_logging(config, base_dir, session_id_str, csv_fieldnames):
+def setup_csv_logging(config, base_dir, session_id_str, csv_fieldnames, logger=logging.getLogger(__name__)):
     """Setup CSV logging for dataset creation."""
 
     if not config.training_logs:
         return None
 
     ensure_directory_exists(base_dir)
-
     csv_filename = f"training_log_{session_id_str}_s{config.seed}_m{config.evaluation_mode}.csv"
     csv_path = base_dir / csv_filename
-
     logger.info(f"Logging training data to CSV: {csv_path}")
 
     try:
         with open(csv_path, "w", newline="") as csvfile:
-            # Header comments
-            header_session_id = f"session_{session_id_str}_s{config.seed}_m{config.evaluation_mode}"
-            csvfile.write(f"# Experiment Session ID: {header_session_id}\n")
+            # Specific headers
+            csvfile.write(f"# Experiment Session ID: {session_id_str}_s{config.seed}_m{config.evaluation_mode}\n")
             csvfile.write(f"# Date Generated: {time.strftime('%Y-%m-%d %H:%M:%S %Z')}\n")
 
-            # Main EA parameters
-            csvfile.write(f"# Number of Training Runs: {config.num_training}\n")
-            csvfile.write(f"# Population Size: {config.pop_size}\n")
-            csvfile.write(f"# Max Evaluations per Run: {config.max_evaluations}\n")
-            csvfile.write(f"# Number of Weights: {config.num_weights}\n")
-
-            # Execution and seeding
-            csvfile.write(f"# Threads for Parallelism: {config.num_threads}\n")
-            csvfile.write(f"# Master Seed: {config.seed}\n")
-            csvfile.write(f"# Deterministic Training Runs (Seeded): {config.seeded_training}\n")
-            csvfile.write(f"# Deterministic Matches (Seeded): {config.seeded_match}\n")
-
-            # Evaluation mode
-            csvfile.write(f"# Evaluation Mode: {config.evaluation_mode}\n")
-            if config.evaluation_mode == "hybrid":
-                csvfile.write(f"# Hybrid Schedule String: {config.hybrid_schedule_str}\n")
-
-            is_fixed = config.evaluation_mode == "fixed" or (
-                config.evaluation_mode == "hybrid" and any(s[0] == "fixed" for s in config.hybrid_schedule_parsed)
-            )
-            is_coevo = config.evaluation_mode == "coevolution" or (
-                config.evaluation_mode == "hybrid" and any(s[0] == "coevolution" for s in config.hybrid_schedule_parsed)
-            )
-
-            if is_fixed:
-                csvfile.write(f"# Base Games vs Fixed Opponents: {config.num_games}\n")
-                csvfile.write(f"# Opponent Bots (Fixed Mode): {config.opponent_bots}\n")
-
-            if is_coevo:
-                csvfile.write(f"# Base Coevo Games per Peer Pairing: {config.coevo_games_per_pairing}\n")
-
-            # Hall of fame parameters
-            csvfile.write(f"# Global HoF Size (Inter-Run): {config.hof_size}\n")
-            if config.hof_size > 0:
-                csvfile.write(f"#    Games vs Each Global HoF Member: {config.hof_num_games}\n")
-
-            csvfile.write(f"# Intra-Run HoF Size: {config.intra_run_hof_size}\n")
-            if config.intra_run_hof_size > 0:
-                csvfile.write(f"#    Games vs Each Intra-Run HoF Member: {config.intra_run_hof_num_games}\n")
-                csvfile.write(f"#    Pruning Percentage: {config.hof_pruning_percentage * 100:.0f}%\n")
-                csvfile.write(f"#    Pruning Frequency (Generations): {config.hof_pruning_frequency_gens}\n")
-
-            # Game and logging parameters
-            csvfile.write(f"# (Note: Final champion benchmark games often use a multiplier on base game values)\n")
-            csvfile.write(f"# Turn Timeout (sec): {config.turn_timeout}\n")
-            csvfile.write(f"# Match Logs (GameRunner): {config.match_logs}\n")
-            csvfile.write(f"# Debug Mode (Script): {config.debug}\n")
-            csvfile.write(f"# Verbose Mode (GameRunner): {config.verbose_gamerunner}\n")
-            csvfile.write(f"# Script Log Level: {config.log_level}\n")
-            csvfile.write(f"# Weight Precision: {config.weight_precision}\n")
+            # Unified summary
+            summary_lines = generate_config_summary(config)
+            for line in summary_lines:
+                csvfile.write(f"# {line}\n")
 
             csvfile.write("# ---\n")
+
+            # CSV data header
             writer = csv.DictWriter(csvfile, fieldnames=csv_fieldnames)
             writer.writeheader()
 
         return csv_path
-
     except IOError as e:
         logger.error(f"Could not open CSV log file for writing: {e}. Disabling CSV logging.")
         return None
 
 
 def main():
+    if sys.platform != "win32":
+        # Ensure multiprocessing uses spawn method on non Windows platforms
+        multiprocessing.set_start_method("spawn", force=True)
+
     if os.name == "nt":
-        # If running on Windows, this improves the multiprocessing compatibility
+        # If running on Windows, this should improve the multiprocessing compatibility
         multiprocessing.freeze_support()
 
     config = get_config_from_args()
 
     # Configure logging
-    log_level = logging.DEBUG if config.debug else config.log_level
-    logger.setLevel(log_level)
-    console_handler.setLevel(log_level)
+    logging.basicConfig(
+        level=logging.DEBUG if config.debug else getattr(logging, str(config.log_level).upper(), logging.INFO),
+        format="%(message)s",
+        stream=sys.stdout,
+        force=True,
+    )
+    logger = logging.getLogger()
 
     if config.debug:
         logger.debug("Debug mode enabled for script logic.")
 
-    # Print configuration summary
     log_config_summary(config, logger)
 
-    # Set up execution environment
+    # Execution environment
     game_runner_exe_path = get_game_runner_path(config)
+
     if not game_runner_exe_path:
         logger.critical("GameRunner executable path could not be determined. Exiting.")
         sys.exit(1)
+
     logger.info(f"Using GameRunner executable at: {game_runner_exe_path}")
 
     # Various setup tasks
@@ -166,7 +127,7 @@ def main():
         "best_indiv_win_breakdown",
     ]
 
-    session_csv_path = setup_csv_logging(config, training_data_dir, session_id_str, csv_fieldnames)
+    session_csv_path = setup_csv_logging(config, training_data_dir, session_id_str, csv_fieldnames, logger)
 
     # Training
     run_champions_data = []
@@ -213,8 +174,6 @@ def main():
         else:
             logger.warning(f"Run {i+1} did not produce a valid champion individual.")
 
-        gc.collect()  # Explicitly run garbage collection
-
     # Final champion clash
     best_overall_weights = None
     best_benchmark_fitness = -float("inf")
@@ -243,8 +202,7 @@ def main():
 
         save_best_weights(
             config=config,
-            best_weights=best_overall_weights,
-            benchmark_fitness=best_benchmark_fitness,
+            all_champions_data=run_champions_data,
             benchmark_details=final_benchmark_details,
             game_runner_dir=game_runner_exe_path.parent,
             session_start_time=session_id_str,

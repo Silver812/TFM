@@ -7,7 +7,8 @@ import inspyred
 import numpy as np
 import multiprocessing
 from pathlib import Path
-from multiprocessing.managers import ListProxy
+import inspyred.ec.variators as variators
+import inspyred.ec.replacers as replacers
 from typing import List, Dict, Any, Tuple, Optional
 
 
@@ -57,7 +58,21 @@ def train_one_run(
 
     with multiprocessing.Manager() as manager:
         run_hall_of_fame = manager.list()  # This list is mutable, to track the best individuals of this train run
+        shared_details_store = manager.dict()
         ea = inspyred.ec.ES(prng_for_ea)
+
+        # Blend Crossover: new inviduals are a blend of two parents
+        # Gaussian Mutation: applies random changes to individuals
+        # This replaces the default self-adaptation mechanism, which only uses mutation to create new individuals
+        ea.variator = [variators.blend_crossover, variators.gaussian_mutation]  # type: ignore
+
+        # Comma Replacement: the next generation is composed only of the best offspring
+        # This is good for maximizing exploration, not so much for exploitation as it removes elitism.
+        # Only use when changing num_offspring to something like config.pop_size * 3 or more.
+        # ea.replacer = replacers.comma_replacement
+        
+        # Generational Replacement: select only the new offspring but with elitism
+        # ea.replacer = replacers.generational_replacement
 
         # Set up observers
         observers = []
@@ -81,6 +96,7 @@ def train_one_run(
             "train_run_idx": run_number_idx,
             "hall_of_fame": hof_weights,
             "run_hall_of_fame": run_hall_of_fame,
+            "shared_details_store": shared_details_store,
             "game_runner_exe_path_str": str(game_runner_exe_path),
         }
 
@@ -155,6 +171,7 @@ def train_one_run(
             # Set up terminator and reset counters
             ea.terminator = inspyred.ec.terminators.evaluation_termination
             ea.num_evaluations = 0
+            shared_details_store.clear()
 
             # Run evolution for this segment
             ea.evolve(
@@ -166,6 +183,11 @@ def train_one_run(
                 pop_size=config.pop_size,
                 maximize=True,
                 bounder=inspyred.ec.Bounder(0, 1),
+                num_offspring=config.pop_size,
+                crossover_rate=config.crossover_rate,
+                mutation_rate=config.mutation_rate,
+                # num_elites=math.ceil(config.pop_size * 0.1), # Only active if using generational replacement 
+                # epsilon=0.1,  # This only works if the ea.variator is not set (so the ES uses the self-adaptation mechanism)
                 **seg_args,
             )
 

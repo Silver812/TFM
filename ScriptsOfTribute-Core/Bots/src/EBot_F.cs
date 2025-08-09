@@ -36,7 +36,7 @@ namespace Bots;
 /// Enums for the various weights in the evolutionary scoring function.
 /// These weights are tuned by an evolutionary algorithm.
 /// </summary>
-public enum EBW
+public enum EBW_F
 {
 	// Agent related weights
 	A_HEALTH_REDUCED,               // Bonus for reducing enemy agent health
@@ -76,10 +76,10 @@ public enum EBW
 }
 
 /// <summary>
-/// EvolutionaryBot is an AI agent for Scripts of Tribute that uses a parametric, greedy selection approach.
+/// EBot_F (short of Evolutionary Bot with Fixed Opponent weights) is an AI agent for Scripts of Tribute that uses a parametric, greedy selection approach.
 /// For each available move, it simulates the resulting game state and computes a score. Then selects the move with the highest score.
 /// </summary>
-public sealed class EvolutionaryBot : AI
+public sealed class EBot_F : AI
 {
 	#region Declarations and initialization
 
@@ -98,9 +98,9 @@ public sealed class EvolutionaryBot : AI
 	private List<(int turnNumber, int moveNumber, string componentName, double value)> _excessiveValues = new();
 
 	/// <summary>
-	/// Initializes a new instance of the EvolutionaryBot class.
+	/// Initializes a new instance of the EBot_F class.
 	/// </summary>
-	public EvolutionaryBot()
+	public EBot_F()
 	{
 		InitBot();
 	}
@@ -789,12 +789,12 @@ public sealed class EvolutionaryBot : AI
 	{
 		Log("No valid weights found from environment or file. Using hardcoded default weights.");
 		double[] defaultWeights = {
-			0.00608954,0.00333326,0.00000000,0.99999997,0.00000000,
-			0.61937121,0.00000000,0.00000000,0.85716977,0.01766012,
-			0.28604759,0.18548796,0.08984469,0.98377612,0.96114306,
-			0.74400253,0.56901472,0.49667712,0.00000000,0.64391429,
-			0.82871507,0.00097986,0.99703272,0.71650534,0.34196094,
-			0.99980960
+			0.50692448,0.00000000,0.03564388,1.00000000,0.34204573,
+			0.38422534,0.13047456,0.06693241,1.00000000,0.77034514,
+			0.09796980,0.02564370,0.81051077,0.74773773,0.30651406,
+			0.04115018,0.14044314,0.86987847,0.17989467,0.75663091,
+			0.61789775,0.00000000,1.00000000,0.95753130,0.00000000,
+			1.00000000
 		};
 		SetAgentWeights(defaultWeights);
 	}

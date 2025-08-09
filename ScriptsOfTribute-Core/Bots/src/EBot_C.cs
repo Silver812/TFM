@@ -36,7 +36,7 @@ namespace Bots;
 /// Enums for the various weights in the evolutionary scoring function.
 /// These weights are tuned by an evolutionary algorithm.
 /// </summary>
-public enum EBW
+public enum EBW_C
 {
 	// Agent related weights
 	A_HEALTH_REDUCED,               // Bonus for reducing enemy agent health
@@ -76,10 +76,10 @@ public enum EBW
 }
 
 /// <summary>
-/// EvolutionaryBot is an AI agent for Scripts of Tribute that uses a parametric, greedy selection approach.
+/// EBot_C (short of Evolutionary Bot with Coevolution weights) is an AI agent for Scripts of Tribute that uses a parametric, greedy selection approach.
 /// For each available move, it simulates the resulting game state and computes a score. Then selects the move with the highest score.
 /// </summary>
-public sealed class EvolutionaryBot : AI
+public sealed class EBot_C : AI
 {
 	#region Declarations and initialization
 
@@ -92,15 +92,15 @@ public sealed class EvolutionaryBot : AI
 	private readonly string _logPath = "patronsEBot.csv";
 	private int _turnCounter;
 	private int _moveCounter;
-	private Dictionary<EBW, double> _weights = null!;
-	private List<Dictionary<EBW, double>> _ensembleWeights = new();
+	private Dictionary<EBW_C, double> _weights = null!;
+	private List<Dictionary<EBW_C, double>> _ensembleWeights = new();
 	private HashSet<PatronId> _patronCommitment = new();
 	private List<(int turnNumber, int moveNumber, string componentName, double value)> _excessiveValues = new();
 
 	/// <summary>
-	/// Initializes a new instance of the EvolutionaryBot class.
+	/// Initializes a new instance of the EBot_C class.
 	/// </summary>
-	public EvolutionaryBot()
+	public EBot_C()
 	{
 		InitBot();
 	}
@@ -114,7 +114,7 @@ public sealed class EvolutionaryBot : AI
 		_startOfGame = true;
 		_turnCounter = 0;
 		_moveCounter = 0;
-		_weights = new Dictionary<EBW, double>();
+		_weights = new Dictionary<EBW_C, double>();
 		_ensembleWeights.Clear();
 		_excessiveValues.Clear();
 		_patronCommitment.Clear();
@@ -131,7 +131,7 @@ public sealed class EvolutionaryBot : AI
 	{
 		// Determine if we should use the ensemble or a single weight set
 		bool useEnsemble = _ensembleWeights.Count > 1;
-		var weightsToUse = useEnsemble ? _ensembleWeights : new List<Dictionary<EBW, double>> { _weights };
+		var weightsToUse = useEnsemble ? _ensembleWeights : new List<Dictionary<EBW_C, double>> { _weights };
 
 		if (useEnsemble) Log($"Evaluating with ensemble of {weightsToUse.Count} members using Borda Count.");
 
@@ -166,7 +166,7 @@ public sealed class EvolutionaryBot : AI
 
 				if (move.Command == CommandEnum.END_TURN)
 				{
-					score = -(gameState.CurrentPlayer.Coins * _weights[EBW.UNSPENT_COIN]);
+					score = -(gameState.CurrentPlayer.Coins * _weights[EBW_C.UNSPENT_COIN]);
 				}
 				else
 				{
@@ -248,17 +248,17 @@ public sealed class EvolutionaryBot : AI
 
 		if (isPrestigeEndgame || isPlayerInCheck)
 		{
-			prestigeMultiplier = 1.0 + _weights[EBW.W_PRESTIGE_ENDGAME_MULT];
+			prestigeMultiplier = 1.0 + _weights[EBW_C.W_PRESTIGE_ENDGAME_MULT];
 		}
 
 		if (isPatronEndgame)
 		{
-			patronMultiplier = 1.0 + _weights[EBW.W_PATRON_ENDGAME_MULT];
+			patronMultiplier = 1.0 + _weights[EBW_C.W_PATRON_ENDGAME_MULT];
 		}
 
-		double prestigeWeight = _weights[EBW.PRESTIGE_AMOUNT] * prestigeMultiplier;
-		double patronWeight = _weights[EBW.P_AMOUNT] * patronMultiplier;
-		double powerWeight = _weights[EBW.POWER_AMOUNT] * prestigeMultiplier;
+		double prestigeWeight = _weights[EBW_C.PRESTIGE_AMOUNT] * prestigeMultiplier;
+		double patronWeight = _weights[EBW_C.P_AMOUNT] * patronMultiplier;
+		double powerWeight = _weights[EBW_C.POWER_AMOUNT] * prestigeMultiplier;
 
 		// Check for immediate win by patrons
 		var afterPatronStates = GetPatronFavorStates(after.PatronStates.All);
@@ -277,15 +277,15 @@ public sealed class EvolutionaryBot : AI
 		{
 			// Normalize enemyPrestige to prevent score explosion
 			double urgencyFactor = enemyPrestige / 40.0;
-			interactionScore = powerChange * urgencyFactor * _weights[EBW.W_POWER_PRESTIGE_INTERACTION];
+			interactionScore = powerChange * urgencyFactor * _weights[EBW_C.W_POWER_PRESTIGE_INTERACTION];
 		}
 
 		// Remaining scores
 		double myCardScore = ComputeCardPoolValue(GetAllCardsForPlayer(after.CurrentPlayer), isEnemy: false) - myInitialCardValue;
 		double enemyCardScore = ComputeCardPoolValue(GetAllCardsForPlayer(after.EnemyPlayer), isEnemy: true) - enemyInitialCardValue;
-		double coinScore = (after.CurrentPlayer.Coins - before.CurrentPlayer.Coins) * _weights[EBW.COIN_AMOUNT];
-		double enemyAgentScore = CalculateScoreAgents(before.EnemyPlayer.Agents, after.EnemyPlayer.Agents) * _weights[EBW.A_ENEMY_AMOUNT];
-		double myAgentScore = CalculateScoreAgents(before.CurrentPlayer.Agents, after.CurrentPlayer.Agents) * _weights[EBW.A_OWN_AMOUNT];
+		double coinScore = (after.CurrentPlayer.Coins - before.CurrentPlayer.Coins) * _weights[EBW_C.COIN_AMOUNT];
+		double enemyAgentScore = CalculateScoreAgents(before.EnemyPlayer.Agents, after.EnemyPlayer.Agents) * _weights[EBW_C.A_ENEMY_AMOUNT];
+		double myAgentScore = CalculateScoreAgents(before.CurrentPlayer.Agents, after.CurrentPlayer.Agents) * _weights[EBW_C.A_OWN_AMOUNT];
 		double tavernScore = CalculateTavernScore(before, after);
 
 		double cohesionScore = 0;
@@ -296,11 +296,11 @@ public sealed class EvolutionaryBot : AI
 			// Deck Building Logic: Applies only when buying cards
 			if (_patronCommitment.Contains(scm.Card.Deck))
 			{
-				cohesionScore += _weights[EBW.P_COHESION];
+				cohesionScore += _weights[EBW_C.P_COHESION];
 			}
 			else if (_patronCommitment.Count >= 2)
 			{
-				cohesionScore -= _weights[EBW.P_COHESION];
+				cohesionScore -= _weights[EBW_C.P_COHESION];
 			}
 		}
 		else if (move is SimplePatronMove spm && spm.PatronId != PatronId.TREASURY)
@@ -310,12 +310,12 @@ public sealed class EvolutionaryBot : AI
 			if (originalOwner == before.EnemyPlayer.PlayerID)
 			{
 				// High bonus for stealing a patron from the enemy
-				patronSwingScore += _weights[EBW.P_SWING];
+				patronSwingScore += _weights[EBW_C.P_SWING];
 			}
 			else if (originalOwner == _myPlayerID)
 			{
 				// Small penalty for reusing a patron
-				patronSwingScore -= _weights[EBW.P_SWING] * 0.5;
+				patronSwingScore -= _weights[EBW_C.P_SWING] * 0.5;
 			}
 		}
 
@@ -421,12 +421,12 @@ public sealed class EvolutionaryBot : AI
 			if (afterAgentsDict.TryGetValue(agentBefore.RepresentingCard.UniqueId, out var agentAfter))
 			{
 				// Agent survived
-				healthReductionScore += (agentBefore.CurrentHp - agentAfter.CurrentHp) * _weights[EBW.A_HEALTH_REDUCED];
+				healthReductionScore += (agentBefore.CurrentHp - agentAfter.CurrentHp) * _weights[EBW_C.A_HEALTH_REDUCED];
 			}
 			else
 			{
 				// Agent was killed
-				killScore += _weights[EBW.A_KILLED];
+				killScore += _weights[EBW_C.A_KILLED];
 			}
 		}
 
@@ -446,7 +446,7 @@ public sealed class EvolutionaryBot : AI
 		foreach (var card in cards)
 		{
 			double tierScore = NormalizeTier(CardTierList.GetCardTier(card.Name));
-			double baseValue = tierScore * _weights[EBW.C_TIER_POOL] - card.Cost * _weights[EBW.C_GOLD_COST];
+			double baseValue = tierScore * _weights[EBW_C.C_TIER_POOL] - card.Cost * _weights[EBW_C.C_GOLD_COST];
 
 
 			if (card.Type == CardType.CURSE)
@@ -454,12 +454,12 @@ public sealed class EvolutionaryBot : AI
 				if (isEnemy)
 				{
 					// Enemy curse removed is bad
-					baseValue -= _weights[EBW.CURSE_REMOVED];
+					baseValue -= _weights[EBW_C.CURSE_REMOVED];
 				}
 				else
 				{
 					// Our curse removed is good
-					baseValue += _weights[EBW.CURSE_REMOVED];
+					baseValue += _weights[EBW_C.CURSE_REMOVED];
 				}
 			}
 
@@ -476,7 +476,7 @@ public sealed class EvolutionaryBot : AI
 			if (count >= 2)
 			{
 				// Bonus is applied per additional card in the same deck
-				double bonus = (count - 1) * (isEnemy ? _weights[EBW.C_ENEMY_COMBO] : _weights[EBW.C_OWN_COMBO]);
+				double bonus = (count - 1) * (isEnemy ? _weights[EBW_C.C_ENEMY_COMBO] : _weights[EBW_C.C_OWN_COMBO]);
 				value += bonus;
 			}
 		}
@@ -523,41 +523,41 @@ public sealed class EvolutionaryBot : AI
 				int currentPatronCalls = (int)before.CurrentPlayer.PatronCalls;
 				if (currentPatronCalls < 2)
 				{
-					score += _weights[EBW.T_TITHE] * (2 - currentPatronCalls);
+					score += _weights[EBW_C.T_TITHE] * (2 - currentPatronCalls);
 				}
 				if (before.EnemyPlayer.Prestige >= WinPrestigeThreshold - 10)
 				{
-					score += _weights[EBW.T_TITHE] * _weights[EBW.H_DRAFT];
+					score += _weights[EBW_C.T_TITHE] * _weights[EBW_C.H_DRAFT];
 				}
 				break;
 
 			case "Black Sacrament":
 				if (before.EnemyPlayer.Agents.Count > 0)
 				{
-					score += _weights[EBW.T_BLACK_SACRAMENT];
+					score += _weights[EBW_C.T_BLACK_SACRAMENT];
 				}
 				if (before.CurrentPlayer.Agents.Count > 0)
 				{
-					score += _weights[EBW.T_BLACK_SACRAMENT] * _weights[EBW.H_DRAFT];
+					score += _weights[EBW_C.T_BLACK_SACRAMENT] * _weights[EBW_C.H_DRAFT];
 				}
 				break;
 
 			case "Ambush":
 				if (before.EnemyPlayer.Agents.Count >= 2)
 				{
-					score += Math.Pow(_weights[EBW.T_AMBUSH] * MaxAgentMultiplier, 2);
+					score += Math.Pow(_weights[EBW_C.T_AMBUSH] * MaxAgentMultiplier, 2);
 				}
 				else if (before.EnemyPlayer.Agents.Count == 1)
 				{
-					score += Math.Pow(_weights[EBW.T_AMBUSH], 2);
+					score += Math.Pow(_weights[EBW_C.T_AMBUSH], 2);
 				}
 				if (before.CurrentPlayer.Agents.Count >= 2)
 				{
-					score += Math.Pow(_weights[EBW.T_AMBUSH] * _weights[EBW.H_DRAFT] * MaxAgentMultiplier, 2);
+					score += Math.Pow(_weights[EBW_C.T_AMBUSH] * _weights[EBW_C.H_DRAFT] * MaxAgentMultiplier, 2);
 				}
 				else if (before.CurrentPlayer.Agents.Count == 1)
 				{
-					score += Math.Pow(_weights[EBW.T_AMBUSH] * _weights[EBW.H_DRAFT], 2);
+					score += Math.Pow(_weights[EBW_C.T_AMBUSH] * _weights[EBW_C.H_DRAFT], 2);
 				}
 				break;
 
@@ -565,11 +565,11 @@ public sealed class EvolutionaryBot : AI
 				if (before.CurrentPlayer.Prestige < WinPrestigeThreshold)
 				{
 					int prestigeGap = Math.Max(0, WinPrestigeThreshold - before.CurrentPlayer.Prestige);
-					score += _weights[EBW.T_BLACKMAIL] * (prestigeGap / (double)WinPrestigeThreshold);
+					score += _weights[EBW_C.T_BLACKMAIL] * (prestigeGap / (double)WinPrestigeThreshold);
 				}
 				if (before.EnemyPlayer.Prestige >= WinPrestigeThreshold - 15)
 				{
-					score += _weights[EBW.T_BLACKMAIL] * _weights[EBW.H_DRAFT];
+					score += _weights[EBW_C.T_BLACKMAIL] * _weights[EBW_C.H_DRAFT];
 				}
 				break;
 
@@ -577,18 +577,18 @@ public sealed class EvolutionaryBot : AI
 				if (before.CurrentPlayer.Prestige < WinPrestigeThreshold)
 				{
 					int prestigeGap = Math.Max(0, WinPrestigeThreshold - before.CurrentPlayer.Prestige);
-					score += _weights[EBW.T_IMPRISONMENT] * (prestigeGap / (double)WinPrestigeThreshold);
+					score += _weights[EBW_C.T_IMPRISONMENT] * (prestigeGap / (double)WinPrestigeThreshold);
 				}
 				if (before.EnemyPlayer.Prestige >= WinPrestigeThreshold - 15)
 				{
-					score += _weights[EBW.T_IMPRISONMENT] * _weights[EBW.H_DRAFT];
+					score += _weights[EBW_C.T_IMPRISONMENT] * _weights[EBW_C.H_DRAFT];
 				}
 				break;
 
 
 			default:
 				// For any other card taken, it is a small gain because we denied the opponent
-				score += NormalizeTier(CardTierList.GetCardTier(removedCard.Name)) * _weights[EBW.H_DRAFT];
+				score += NormalizeTier(CardTierList.GetCardTier(removedCard.Name)) * _weights[EBW_C.H_DRAFT];
 				break;
 		}
 
@@ -656,11 +656,11 @@ public sealed class EvolutionaryBot : AI
 
 	/// <summary>
 	/// Sets the weights for the evolutionary scoring function from an array.
-	/// The array length must match the number of EBW values.
+	/// The array length must match the number of EBW_C values.
 	/// </summary>
 	public void SetAgentWeights(double[] w)
 	{
-		var ebwValues = Enum.GetValues(typeof(EBW)).Cast<EBW>().ToArray();
+		var ebwValues = Enum.GetValues(typeof(EBW_C)).Cast<EBW_C>().ToArray();
 
 		if (w.Length != ebwValues.Length)
 		{
@@ -712,7 +712,7 @@ public sealed class EvolutionaryBot : AI
 			Log($"PlayerID {_myPlayerID} attempting to load weights from {weightsEnvVarName}.");
 			string[] parts = weightString.Split(',');
 
-			if (parts.Length == Enum.GetNames(typeof(EBW)).Length)
+			if (parts.Length == Enum.GetNames(typeof(EBW_C)).Length)
 			{
 				try
 				{
@@ -728,7 +728,7 @@ public sealed class EvolutionaryBot : AI
 			}
 			else
 			{
-				Log($"Expected {Enum.GetNames(typeof(EBW)).Length} weights but got {parts.Length} from {weightsEnvVarName}. Falling back.");
+				Log($"Expected {Enum.GetNames(typeof(EBW_C)).Length} weights but got {parts.Length} from {weightsEnvVarName}. Falling back.");
 			}
 		}
 
@@ -746,10 +746,10 @@ public sealed class EvolutionaryBot : AI
 					foreach (var line in lines)
 					{
 						var parts = line.Trim().Split(',');
-						if (parts.Length == Enum.GetNames(typeof(EBW)).Length)
+						if (parts.Length == Enum.GetNames(typeof(EBW_C)).Length)
 						{
 							var weights = parts.Select(s => double.Parse(s.Trim(), CultureInfo.InvariantCulture)).ToArray();
-							var weightDict = Enum.GetValues(typeof(EBW)).Cast<EBW>()
+							var weightDict = Enum.GetValues(typeof(EBW_C)).Cast<EBW_C>()
 												 .Zip(weights, (k, v) => new { k, v })
 												 .ToDictionary(x => x.k, x => x.v);
 							_ensembleWeights.Add(weightDict);

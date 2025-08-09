@@ -43,29 +43,27 @@ if (-not (Test-Path $LogDir)) {
 "" | Tee-Object -Append -FilePath $LogFile
 
 # Configurations & Parameters
-$CommonParams = "--num_games 200 --num_threads 8 --num_training 5 --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode hybrid"
+$CommonParams = "--num_games 150 --num_threads 8 --num_training 3 --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode hybrid"
 
 $HybridSchedules = @(
-	"fixed:0.4,coevolution:0.3,fixed:0.3",
+	"fixed:0.33,coevolution:0.34,fixed:0.33",
 	"fixed:0.7,coevolution:0.3",
 	"fixed:0.4,coevolution:0.2,fixed:0.4",
 	"fixed:0.5,coevolution:0.5",
 	"coevolution:0.6,fixed:0.4",
 	"coevolution:0.4,fixed:0.2,coevolution:0.4",
-	"fixed:0.1,coevolution:0.1,fixed:0.1,coevolution:0.1,fixed:0.1,coevolution:0.1,fixed:0.1,coevolution:0.1,fixed:0.1,coevolution:0.1",
-	"fixed:0.2,coevolution:0.2,fixed:0.2,coevolution:0.2,fixed:0.2",
 	"fixed:0.8,coevolution:0.2",
 	"coevolution:0.8,fixed:0.2",
 	"fixed:0.2,coevolution:0.5,fixed:0.3",
-	"fixed:0.3,coevolution:0.4,fixed:0.3",
 	"coevolution:0.3,fixed:0.4,coevolution:0.3",
 	"fixed:0.1,coevolution:0.8,fixed:0.1",
 	"coevolution:0.1,fixed:0.8,coevolution:0.1",
 	"fixed:0.1,coevolution:0.2,fixed:0.1,coevolution:0.6",
 	"coevolution:0.1,fixed:0.2,coevolution:0.1,fixed:0.6",
 	"fixed:0.9,coevolution:0.1",
+	"fixed:0.2,coevolution:0.8",
 	"coevolution:0.9,fixed:0.1",
-	"fixed:0.33,coevolution:0.34,fixed:0.33"
+	"fixed:0.2,coevolution:0.2,fixed:0.2,coevolution:0.2,fixed:0.2"
 )
 
 $Statuses = @()

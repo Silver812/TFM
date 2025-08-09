@@ -1,15 +1,13 @@
-from operator import itemgetter
 import numpy as np
 import csv
 import time
 import logging
 from pathlib import Path
+from operator import itemgetter
 from multiprocessing.managers import ListProxy
 from typing import List, Dict, Any, Tuple, Optional, Union
 
-
 from .config import Config
-from .evaluators import run_single_coevo_battle_task
 from .utils import individual_to_commandline, Individual
 
 logger = logging.getLogger(__name__)
@@ -42,18 +40,15 @@ class LoggingObserver:
         global_evals = eval_offset + num_evaluations
         global_gen = gen_offset + num_generations
 
-        details_store = self.details_from_last_eval
+        details_store = args.get("shared_details_store", {})
 
         # Get population and best individual
         valid_pop = [p for p in population if p.fitness is not None and p.candidate is not None]
 
         if not valid_pop:
             logger.warning(f"Run {self.train_run + 1} Gen {global_gen}: No valid individuals.")
-            if details_store:
-                details_store.clear()
             return
 
-        # Define best_indiv once, early, to be used throughout the function
         best_indiv = max(valid_pop, key=lambda p: p.fitness)
         fitness_values = [p.fitness for p in valid_pop]
         best_fitness = best_indiv.fitness
@@ -73,57 +68,34 @@ class LoggingObserver:
                 f"{median_fitness: >10.2f} {mean_fitness: >10.2f} {std_fitness: >10.2f}"
             )
 
-        # Hall of Fame logic
+        # Pruning logic for the run hall of fame
         if self.config.intra_run_hof_size > 0:
-            # Bounded key for uniqueness checks
-            bounded_weights = [max(0, min(w, 1)) for w in best_indiv.candidate]
-            champion_key = individual_to_commandline(bounded_weights, self.config.weight_precision)
-            is_in_hof = any(champion_key == hof_entry.get("id") for hof_entry in self.run_hall_of_fame)
-
-            if not is_in_hof:
-                hof_entry = {"id": champion_key, "weights": best_indiv.candidate, "defeats": 0}
-
-                if len(self.run_hall_of_fame) < self.config.intra_run_hof_size:
-                    self.run_hall_of_fame.append(hof_entry)
-                    logger.info(f"Added new champion. Size: {len(self.run_hall_of_fame)}")
-                else:
-
-                    # Find weakest member to challenge
-                    weakest_member = max(self.run_hall_of_fame, key=itemgetter("defeats"))
-                    weakest_member_index = self.run_hall_of_fame.index(weakest_member)
-
-                    # Match against weakest member
-                    game_runner_path = Path(args["game_runner_exe_path_str"])
-
-                    _, wins, _, _, _, played, _, _ = run_single_coevo_battle_task(
-                        p1_id="champion",
-                        p1_weights=best_indiv.candidate,
-                        p2_id="weakest_hof",
-                        p2_weights=weakest_member["weights"],
-                        num_games=self.config.intra_run_hof_num_games,
-                        config=self.config,
-                        game_runner_path=game_runner_path,
-                        battle_type="hof_challenge",
-                    )
-
-                    # Replace
-                    if played > 0 and (wins / played) > 0.5:
-                        logger.info(f"New champion WON the challenge ({wins}/{played}). Replacing weakest member.")
-                        self.run_hall_of_fame[weakest_member_index] = hof_entry
-                    else:
-                        logger.info(f"New champion LOST the challenge ({wins}/{played}). HoF remains unchanged.")
-
-            # Pruning logic
             perform_pruning = (
                 self.config.hof_pruning_frequency_gens > 0 and global_gen > 0 and global_gen % self.config.hof_pruning_frequency_gens == 0
             )
             if perform_pruning and len(self.run_hall_of_fame) > 1:
                 num_to_prune = int(len(self.run_hall_of_fame) * self.config.hof_pruning_percentage)
                 if num_to_prune > 0:
-                    self.run_hall_of_fame.sort(key=itemgetter("defeats"), reverse=True)
+                    current_mode = args.get("current_observer_segment_mode")
+
+                    if current_mode == "coevolution":
+                        sort_key = "generation_added"
+                        logger.info(f"Pruning {num_to_prune} OLDEST members from HoF (Co-evolution strategy).")
+                    else:
+                        sort_key = "fitness"
+                        logger.info(f"Pruning {num_to_prune} WEAKEST members from HoF (Fixed mode strategy).")
+
+                    self.run_hall_of_fame.sort(key=itemgetter(sort_key))
+                    pruned_members = self.run_hall_of_fame[:num_to_prune]
+                    pruned_info = ", ".join(
+                        [f"id_{i} (fit: {m['fitness']:.2f}, gen: {m.get('generation_added', 'N/A')})" for i, m in enumerate(pruned_members)]
+                    )
+
+                    # Remove the weakest member
                     for _ in range(num_to_prune):
                         self.run_hall_of_fame.pop(0)
-                    logger.info(f"Pruning {num_to_prune} weakest members. New size: {len(self.run_hall_of_fame)}")
+
+                    logger.info(f"Pruned members: {pruned_info}. New size: {len(self.run_hall_of_fame)}")
 
         if self.config.debug and best_indiv.candidate:
             weights_str = individual_to_commandline(best_indiv.candidate, self.config.weight_precision)
@@ -133,9 +105,6 @@ class LoggingObserver:
             segment_mode = args.get("current_observer_segment_mode", "N/A")
             segment_games = args.get("current_observer_segment_games", "N/A")
             self.log_to_csv(global_gen, global_evals, best_indiv, fitness_values, details_store, valid_pop, segment_mode, segment_games)
-
-        if details_store:
-            self.details_from_last_eval.clear()
 
     def log_to_csv(
         self,
@@ -161,11 +130,10 @@ class LoggingObserver:
 
         # Process best individual data
         if best_indiv and best_indiv.candidate:
-            # Extract best weights
+
+            # Extract best weights and fitness
             best_weights = best_indiv.candidate[: self.config.num_weights]
             best_weights_str = individual_to_commandline(best_weights, self.config.weight_precision)
-
-            # Extract fitness
             best_fitness = float(best_indiv.fitness.values[0] if hasattr(best_indiv.fitness, "values") else best_indiv.fitness)
 
             # Get win breakdown for fixed mode

@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List, Dict, Any, Tuple, Optional, Union
 
 from .config import Config
-from .utils import individual_to_commandline
+from .utils import individual_to_commandline, generate_config_summary
 from .evaluators import evaluate_fixed_mode_orchestrator, run_single_coevo_battle_task
 
 logger = logging.getLogger(__name__)
@@ -56,9 +56,7 @@ def run_final_benchmark(
                 config, champions, hall_of_fame, game_runner_path, details_collector, all_champion_details
             )
         elif benchmark_style == "coevolution":
-            best_weights, best_fitness = run_coevo_benchmark(
-                config, champions, hall_of_fame, game_runner_path, all_champion_details
-            )
+            best_weights, best_fitness = run_coevo_benchmark(config, champions, hall_of_fame, game_runner_path, all_champion_details)
         else:
             logger.error(f"Unsupported benchmark style: {benchmark_style}")
             return None, -float("inf"), {}
@@ -271,28 +269,25 @@ def execute_battle_tasks(battle_tasks: List[Tuple], num_threads: int) -> List[Tu
 
 def save_best_weights(
     config: Config,
-    best_weights: List[float],
-    benchmark_fitness: float,
+    all_champions_data: List[Dict[str, Any]],
     benchmark_details: Dict[str, Dict[str, int]],
     game_runner_dir: Path,
     session_start_time: str,
     total_duration_sec: float,
 ):
-    """
-    Save best weights and benchmark summary to a file.
-    """
+    """Saves all champion weights sorted by fitness"""
 
     output_file = game_runner_dir / "eb_best_weights.txt"
-    logger.info(f"Saving best weights to {output_file}")
+    logger.info(f"Saving all {len(all_champions_data)} champion weights to {output_file}")
+
+    # Sort the champions to find the best one for the summary
+    sorted_champions = sorted(all_champions_data, key=lambda c: c.get("benchmark_fitness", -1.0), reverse=True)
+    best_champion_fitness = sorted_champions[0].get("benchmark_fitness", 0.0) if sorted_champions else 0.0
 
     try:
         with open(output_file, "w") as f:
-            # Weights
-            f.write(individual_to_commandline(best_weights, config.weight_precision) + "\n")
-
-            # Benchmark summary
-            f.write("### Benchmark Summary ###\n")
-            f.write(f"# Fitness (Win Rate %): {benchmark_fitness:.4f}\n")
+            f.write("### Overall Best Champion Benchmark Summary ###\n")
+            f.write(f"# Fitness (Win Rate %): {best_champion_fitness:.4f}\n")
 
             if benchmark_details:
                 f.write("# Win Breakdown:\n")
@@ -300,52 +295,25 @@ def save_best_weights(
                     f.write(f"#   vs {opponent}: {stats.get('wins',0)}/{stats.get('played',0)}\n")
             else:
                 f.write("# Win Breakdown: No details available\n")
+            f.write("\n")
 
-            # Complete configuration
+            # Write the weights for each champion, sorted by rank
+            f.write("### All Champion Weights (Sorted by Fitness) ###\n")
+            for i, champ in enumerate(sorted_champions):
+                fitness = champ.get("benchmark_fitness", 0.0)
+                weights = champ.get("weights", [])
+
+                f.write(f"# Rank {i + 1}, Fitness: {fitness:.4f}, Run: {champ.get('run_index', -1) + 1}\n")
+                f.write(individual_to_commandline(weights, config.weight_precision) + "\n")
+            f.write("\n")
+
+            # Write the full configuration summary
             f.write("### Configuration ###\n")
-            f.write(f"# Session ID: {session_start_time}_s{config.seed}\n")
             f.write(f"# Generated: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"# Duration: {total_duration_sec:.2f}s\n")
 
-            # Main EA parameters
-            f.write(f"# Training Runs: {config.num_training}\n")
-            f.write(f"# Population Size: {config.pop_size}\n")
-            f.write(f"# Max Evaluations/Run: {config.max_evaluations}\n")
-            f.write(f"# Number of Weights: {config.num_weights}\n")
-
-            # Execution and seeding
-            f.write(f"# Threads for Parallelism: {config.num_threads}\n")
-            f.write(f"# Master Seed: {config.seed}\n")
-            f.write(f"# Deterministic Training Runs (Seeded): {config.seeded_training}\n")
-            f.write(f"# Deterministic Matches (Seeded): {config.seeded_match}\n")
-
-            # Evaluation mode
-            f.write(f"# Evaluation Mode: {config.evaluation_mode}\n")
-            if config.evaluation_mode == "hybrid":
-                f.write(f"#    Hybrid Schedule: {config.hybrid_schedule_str}\n")
-
-            # Base game counts
-            f.write(f"# Base Games (Fixed): {config.num_games}\n")
-            f.write(f"# Base Games (Coevo): {config.coevo_games_per_pairing}\n")
-
-            # Hall of fame parameters
-            f.write(f"# Global HoF Size (Inter-Run): {config.hof_size}\n")
-            if config.hof_size > 0:
-                f.write(f"#    Games vs Each Global HoF Member: {config.hof_num_games}\n")
-
-            f.write(f"# Intra-Run HoF Size: {config.intra_run_hof_size}\n")
-            if config.intra_run_hof_size > 0:
-                f.write(f"#    Games vs Each Intra-Run HoF Member: {config.intra_run_hof_num_games}\n")
-                f.write(f"#    Pruning Percentage: {config.hof_pruning_percentage * 100:.0f}%\n")
-                f.write(f"#    Pruning Frequency (Generations): {config.hof_pruning_frequency_gens}\n")
-
-            # Game and logging parameters
-            f.write(f"# Turn Timeout: {config.turn_timeout}s\n")
-            f.write(f"# Weight Precision: {config.weight_precision}\n")
-            opponents = ", ".join(config.opponent_bots) if config.opponent_bots else "None"
-            f.write(f"# Opponent Bots: {opponents}\n")
-            f.write(f"# Match Logs: {config.match_logs}\n")
-            f.write(f"# Debug Mode: {config.debug}\n")
+            summary_lines = generate_config_summary(config, session_id=session_start_time, duration_sec=total_duration_sec)
+            for line in summary_lines:
+                f.write(f"# {line}\n")
 
     except IOError as e:
         logger.error(f"Failed to write weights file: {e}")

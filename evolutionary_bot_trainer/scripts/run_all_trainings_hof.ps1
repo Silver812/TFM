@@ -48,22 +48,22 @@ if (-not (Test-Path $LogDir)) {
 "" | Tee-Object -Append -FilePath $LogFile
 
 # Common parameters
-$CommonParams = "--num_games 200 --num_threads 8 --num_training 5"
+$CommonParams = "--num_games 100 --num_threads 8 --num_training 3"
 
 # Configurations
-$FixedStatus = Start-Training "Fixed Mode Training HoF 3" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode fixed" -LogFile $LogFile
-$HybridStatus = Start-Training "Hybrid Mode Training HoF 3" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode hybrid --hybrid_schedule_str fixed:0.4,coevolution:0.2,fixed:0.4" -LogFile $LogFile
-$CoevoStatus = Start-Training "Coevolution Mode Training HoF 3" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode coevolution" -LogFile $LogFile
-$FixedStatus2 = Start-Training "Fixed Mode Training HoF 0" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode fixed" -LogFile $LogFile
-$HybridStatus2 = Start-Training "Hybrid Mode Training HoF 0" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode hybrid --hybrid_schedule_str fixed:0.4,coevolution:0.2,fixed:0.4" -LogFile $LogFile
-$CoevoStatus2 = Start-Training "Coevolution Mode Training HoF 0" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode coevolution" -LogFile $LogFile
+$FixedStatus = Start-Training "Fixed Mode Training HoF 3" "$CommonParams --max_evaluations 200 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode fixed" -LogFile $LogFile
+# $HybridStatus = Start-Training "Hybrid Mode Training HoF 3" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode hybrid --hybrid_schedule_str fixed:0.4,coevolution:0.2,fixed:0.4" -LogFile $LogFile
+$CoevoStatus = Start-Training "Coevolution Mode Training HoF 3" "$CommonParams --max_evaluations 200 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode coevolution" -LogFile $LogFile
+# $FixedStatus2 = Start-Training "Fixed Mode Training HoF 0" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode fixed" -LogFile $LogFile
+# $HybridStatus2 = Start-Training "Hybrid Mode Training HoF 0" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode hybrid --hybrid_schedule_str fixed:0.4,coevolution:0.2,fixed:0.4" -LogFile $LogFile
+# $CoevoStatus2 = Start-Training "Coevolution Mode Training HoF 0" "$CommonParams --max_evaluations 500 --pop_size 10 --intra_run_hof_size 0 --evaluation_mode coevolution" -LogFile $LogFile
 
 # Summary
 "Training Sequence Summary:" | Tee-Object -Append -FilePath $LogFile
 " - Fixed Mode Training HoF 3: $(if ($FixedStatus -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
-" - Hybrid Mode Training HoF 3: $(if ($HybridStatus -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
+# " - Hybrid Mode Training HoF 3: $(if ($HybridStatus -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
 " - Coevolution Mode Training HoF 3: $(if ($CoevoStatus -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
-" - Fixed Mode Training HoF 0: $(if ($FixedStatus2 -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
-" - Hybrid Mode Training HoF 0: $(if ($HybridStatus2 -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
-" - Coevolution Mode Training HoF 0: $(if ($CoevoStatus2 -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
+# " - Fixed Mode Training HoF 0: $(if ($FixedStatus2 -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
+# " - Hybrid Mode Training HoF 0: $(if ($HybridStatus2 -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
+# " - Coevolution Mode Training HoF 0: $(if ($CoevoStatus2 -eq 0) {'SUCCESS'} else {'FAILED'})" | Tee-Object -Append -FilePath $LogFile
 "All training runs completed at $(Get-Date)" | Tee-Object -Append -FilePath $LogFile

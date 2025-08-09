@@ -150,9 +150,9 @@ public class CardTierList
         new CardTier("Writ of Coin", PatronId.TREASURY, TierEnum.D),
         new CardTier("Unknown", PatronId.TREASURY, TierEnum.UNKNOWN),
         // Added Saint Alessia
-        new CardTier("Alessian Rebel", PatronId.SAINT_ALESSIA, TierEnum.C),
-        new CardTier("Ayleid Defector", PatronId.SAINT_ALESSIA, TierEnum.B),
-        new CardTier("Ayleid Quartermaster", PatronId.SAINT_ALESSIA, TierEnum.B),
+        new CardTier("Alessian Rebel", PatronId.SAINT_ALESSIA, TierEnum.D),
+        new CardTier("Ayleid Defector", PatronId.SAINT_ALESSIA, TierEnum.A),
+        new CardTier("Ayleid Quartermaster", PatronId.SAINT_ALESSIA, TierEnum.A),
         new CardTier("Chainbreaker Captain", PatronId.SAINT_ALESSIA, TierEnum.A),
         new CardTier("Chainbreaker Sergeant", PatronId.SAINT_ALESSIA, TierEnum.B),
         new CardTier("Morihaus, Sacred Bull", PatronId.SAINT_ALESSIA, TierEnum.S),
@@ -166,6 +166,14 @@ public class CardTierList
 
     public static TierEnum GetCardTier(string cardName)
     {
-        return Array.Find(CardTierArray, x => x.Name == cardName).Tier;
+        try
+        {
+            return Array.Find(CardTierArray, x => x.Name == cardName).Tier;
+        }
+        catch
+        {
+            return TierEnum.UNKNOWN;
+        }
+        
     }
 }

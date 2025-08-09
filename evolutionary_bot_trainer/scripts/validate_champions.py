@@ -18,8 +18,8 @@ except ImportError as e:
     sys.exit(1)
 
 LOG_TO_VALIDATE = ""
-MODE = "coevo"
-MATCHES = 5000
+MODE = "fixed"
+MATCHES = 2000
 THREADS = 8
 
 
@@ -65,13 +65,25 @@ def run_fixed_benchmark(all_weights: list, args: argparse.Namespace, sim_config:
 
             if matches_as_p1 > 0:
                 bot_wins_as_p1, _ = simulate_match(
-                    sim_config, "EvolutionaryBot", opponent, matches_as_p1, game_runner_path, p1_weights=weights_floats, threads=args.threads
+                    sim_config,
+                    "EvolutionaryBot",
+                    opponent,
+                    matches_as_p1,
+                    game_runner_path,
+                    p1_weights=weights_floats,
+                    threads=args.threads,
                 )
                 total_wins_vs_opponent += bot_wins_as_p1
 
             if matches_as_p2 > 0:
                 _, bot_wins_as_p2 = simulate_match(
-                    sim_config, opponent, "EvolutionaryBot", matches_as_p2, game_runner_path, p2_weights=weights_floats, threads=args.threads
+                    sim_config,
+                    opponent,
+                    "EvolutionaryBot",
+                    matches_as_p2,
+                    game_runner_path,
+                    p2_weights=weights_floats,
+                    threads=args.threads,
                 )
                 total_wins_vs_opponent += bot_wins_as_p2
 
@@ -87,6 +99,47 @@ def run_fixed_benchmark(all_weights: list, args: argparse.Namespace, sim_config:
     print_fixed_summary(results, args)
 
 
+def _run_mirrored_matchup(sim_config, game_runner_path, p1_weights, p2_weights, num_matches, threads):
+    """Runs a full set of matches, including a mirrored set, for benchmarking."""
+    matches_as_p1 = num_matches // 2
+    matches_as_p2 = num_matches - num_matches // 2
+
+    total_p1_wins = 0
+    total_p2_wins = 0
+
+    # P1 plays as Player 1
+    if matches_as_p1 > 0:
+        p1_wins_1, p2_wins_1 = simulate_match(
+            sim_config,
+            "EvolutionaryBot",
+            "EvolutionaryBot",
+            matches_as_p1,
+            game_runner_path,
+            p1_weights=p1_weights,
+            p2_weights=p2_weights,
+            threads=threads,
+        )
+        total_p1_wins += p1_wins_1
+        total_p2_wins += p2_wins_1
+
+    # P1 plays as Player 2 (mirrored match)
+    if matches_as_p2 > 0:
+        p2_wins_2, p1_wins_2 = simulate_match(
+            sim_config,
+            "EvolutionaryBot",
+            "EvolutionaryBot",
+            matches_as_p2,
+            game_runner_path,
+            p1_weights=p2_weights,
+            p2_weights=p1_weights,
+            threads=threads,
+        )
+        total_p1_wins += p1_wins_2
+        total_p2_wins += p2_wins_2
+
+    return total_p1_wins, total_p2_wins
+
+
 def run_coevo_benchmark(all_weights: list, args: argparse.Namespace, sim_config: Config, game_runner_path: Path):
     """Runs a round-robin tournament between all found champions."""
     champions = {f"C{i+1}": [float(w) for w in weights_str.split(",")] for i, weights_str in enumerate(all_weights)}
@@ -99,16 +152,15 @@ def run_coevo_benchmark(all_weights: list, args: argparse.Namespace, sim_config:
     with concurrent.futures.ProcessPoolExecutor(max_workers=args.threads) as executor:
         future_to_matchup = {}
         for p1_id, p2_id in matchups:
-            print(f"  Scheduling: {p1_id} vs {p2_id} ({args.matches} matches)")
+            print(f"     Scheduling: {p1_id} vs {p2_id} ({args.matches} matches)")
             future = executor.submit(
-                simulate_match,
+                _run_mirrored_matchup,
                 sim_config,
-                "EvolutionaryBot",
-                "EvolutionaryBot",
-                args.matches,
                 game_runner_path,
-                p1_weights=champions[p1_id],
-                p2_weights=champions[p2_id],
+                champions[p1_id],
+                champions[p2_id],
+                args.matches,
+                1,  # Each process handles one matchup
             )
             future_to_matchup[future] = (p1_id, p2_id)
 
@@ -219,7 +271,7 @@ def main():
     parser.add_argument(
         "--opponents",
         nargs="+",
-        default=["PatronFavorsBot", "MaxAgentsBot", "MaxPrestigeBot", "DecisionTreeBot"],
+        default=["MaxAgentsBot", "PatronFavorsBot", "AlwaysFirstOptionBot", "DecisionTreeBot"],
         help="List of opponent bot names (for fixed mode).",
     )
     args = parser.parse_args()

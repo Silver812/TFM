@@ -1,0 +1,727 @@
+Starting training sequence at 08/02/2025 13:15:38
+Log file: C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\evolutionary_bot_trainer\scripts\..\training_logs\training_runs_20250802_131538.log
+
+========================================================================
+STARTING TRAINING: Fixed Mode Training HoF 3 at 08/02/2025 13:15:38
+PARAMETERS: --num_games 100 --num_threads 8 --num_training 3 --max_evaluations 200 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode fixed
+========================================================================
+
+--- Configuration Summary ---
+   Training Runs: 3
+   Population Size: 10
+   Max Evaluations/Run: 200
+   Number of Weights: 26
+   Mutation Rate: 0.3
+   Crossover Rate: 0.7
+   Threads for Parallelism: 8
+   Master Seed: 123
+   Deterministic Training Runs (Seeded): True
+   Deterministic Matches (Seeded): False
+   Evaluation Mode: fixed
+   Base Games (Fixed): 100
+   Opponent Bots (Fixed): MaxAgentsBot, PatronFavorsBot, AlwaysFirstOptionBot, DecisionTreeBot
+   Base Games (Coevo): 15
+   Global HoF Size (Inter-Run): 0
+   Intra-Run HoF Size: 3
+     Games vs Each Intra-Run HoF Member: 20
+     Pruning Percentage: 35%
+     Pruning Frequency (Generations): 7
+   Turn Timeout: 5s
+   Weight Precision: 8
+   Match Logs: NONE
+   Debug Mode: False
+---------------------------
+
+Using GameRunner executable at: C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\ScriptsOfTribute-Core\GameRunner\bin\Debug\net8.0\GameRunner.exe
+Master PRNG initialized with seed: 123
+Logging training data to CSV: C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\evolutionary_bot_trainer\training_data\training_log_20250802_131538_s123_mfixed.csv
+
+--- Starting Training Run 1/3 with seed: 123 ---
+Starting Training Run 1/3 (HoF size: 0)
+
+Run 1, Segment 1/1: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+HoF not full. Added new champion (type: offspring, fitness: 69.00). Size: 1
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10     15.95s      12.00      69.00      51.00      46.00      17.44
+HoF not full. Added new champion (type: offspring, fitness: 75.00). Size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20     16.91s      45.00      75.00      58.00      59.65       9.08
+HoF not full. Added new champion (type: offspring, fitness: 78.57). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30     19.32s      57.00      78.57      63.21      65.32       7.03
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40     22.95s      58.13      78.57      63.21      65.70       6.63
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50     20.71s      62.00      78.57      69.08      69.02       5.92
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60     20.96s      62.86      78.57      71.25      71.00       4.90
+New champion (fitness 79.38) is stronger than weakest HoF member (fitness 69.00). Replacing.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70     20.59s      69.00      79.38      72.50      73.55       3.55
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80     21.11s      70.00      79.38      72.50      73.79       3.26
+Pruning 1 WEAKEST members from HoF (Fixed mode strategy).
+Pruned members: id_0 (fit: 75.00, gen: 0). New size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90     18.89s      71.88      79.38      76.65      75.74       2.52
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100     18.23s      72.50      79.38      76.65      75.84       2.38
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110     20.54s      72.86      79.38      77.01      76.62       1.82
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120     20.34s      75.00      79.38      77.01      76.98       1.32
+HoF not full. Added new champion (type: offspring, fitness: 80.71). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130     20.26s      75.00      80.71      77.14      77.55       1.56
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140     28.59s      75.00      80.71      77.14      77.55       1.56
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150     27.48s      76.25      80.71      77.14      77.68       1.39
+Pruning 1 WEAKEST members from HoF (Fixed mode strategy).
+Pruned members: id_0 (fit: 78.57, gen: 1). New size: 2
+HoF not full. Added new champion (type: offspring, fitness: 82.86). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160     24.18s      76.43      82.86      77.50      78.34       1.99
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170     30.49s      76.43      82.86      78.21      78.57       1.89
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180     29.09s      76.43      82.86      78.21      78.57       1.89
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190     29.82s      76.88      82.86      78.21      78.68       1.79
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200     33.44s      77.14      82.86      78.21      78.74       1.74
+
+Run 1 completed. Best fitness: 82.86
+Run 1 champion fitness: 82.86
+
+--- Starting Training Run 2/3 with seed: 1123 ---
+Starting Training Run 2/3 (HoF size: 0)
+
+Run 2, Segment 1/1: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+HoF not full. Added new champion (type: offspring, fitness: 80.00). Size: 1
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10     16.47s       4.00      80.00      61.00      56.00      21.58
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20     21.08s      55.83      80.00      68.33      67.92       7.16
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30     19.45s      65.83      80.00      70.00      71.13       4.31
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40     19.40s      68.33      80.00      70.42      71.80       3.76
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50     19.87s      68.33      80.00      70.83      72.05       3.60
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60     20.27s      70.00      80.00      72.92      73.80       3.31
+HoF not full. Added new champion (type: offspring, fitness: 82.50). Size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70     18.19s      71.67      82.50      75.83      76.13       3.25
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80     22.82s      73.33      82.50      75.83      76.65       2.74
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90     24.32s      74.29      82.50      76.67      77.68       2.79
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100     25.48s      75.00      82.50      76.67      77.75       2.71
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110     23.99s      75.71      82.50      77.32      78.18       2.40
+HoF not full. Added new champion (type: offspring, fitness: 82.86). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120     23.59s      75.83      82.86      77.75      78.90       2.61
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130     29.76s      75.83      82.86      77.75      78.90       2.61
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140     31.23s      75.83      82.86      77.75      78.94       2.56
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150     31.37s      77.14      82.86      78.75      79.48       2.16
+Pruning 1 WEAKEST members from HoF (Fixed mode strategy).
+Pruned members: id_0 (fit: 80.00, gen: 0). New size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160     24.87s      77.14      82.86      78.97      79.62       2.05
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170     26.20s      77.14      82.86      78.97      79.62       2.05
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180     26.11s      77.14      82.86      78.97      79.62       2.05
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190     22.74s      77.14      82.86      78.97      79.62       2.05
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200     23.79s      77.14      82.86      78.97      79.62       2.05
+
+Run 2 completed. Best fitness: 82.86
+Run 2 champion fitness: 82.86
+
+--- Starting Training Run 3/3 with seed: 2123 ---
+Starting Training Run 3/3 (HoF size: 0)
+
+Run 3, Segment 1/1: Mode 'fixed', Evals: 200, Eval offset: 0, Gen offset: 0
+HoF not full. Added new champion (type: offspring, fitness: 71.00). Size: 1
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10     19.31s       6.00      71.00      44.50      40.90      23.17
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20     22.00s      34.17      71.00      51.67      54.18      12.80
+HoF not full. Added new champion (type: offspring, fitness: 74.17). Size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30     19.78s      46.00      74.17      66.75      62.55       9.58
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40     25.33s      60.00      74.17      66.75      66.88       4.40
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50     23.91s      65.00      74.17      67.68      68.45       2.79
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60     18.59s      66.00      74.17      68.57      68.95       2.47
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70     18.38s      66.00      74.17      68.57      68.95       2.47
+HoF not full. Added new champion (type: offspring, fitness: 77.86). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80     17.67s      67.50      77.86      70.42      70.78       3.04
+Pruning 1 WEAKEST members from HoF (Fixed mode strategy).
+Pruned members: id_0 (fit: 71.00, gen: 0). New size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90     19.76s      69.29      77.86      71.21      71.81       2.39
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100     18.96s      70.00      77.86      71.43      72.67       2.64
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110     17.22s      70.83      77.86      72.14      73.10       2.39
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120     18.15s      71.43      77.86      72.50      73.77       2.49
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130     17.52s      71.43      77.86      73.51      74.13       2.30
+HoF not full. Added new champion (type: offspring, fitness: 80.71). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140     17.66s      74.17      80.71      76.79      76.49       1.89
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150     21.55s      74.17      80.71      76.79      76.49       1.89
+Pruning 1 WEAKEST members from HoF (Fixed mode strategy).
+Pruned members: id_0 (fit: 74.17, gen: 1). New size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160     19.10s      74.17      80.71      76.79      76.49       1.89
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170     20.13s      74.29      80.71      77.14      77.00       1.88
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180     21.57s      75.00      80.71      77.14      77.36       1.66
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190     23.21s      75.00      80.71      77.14      77.50       1.51
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200     25.90s      75.00      80.71      77.14      77.50       1.51
+
+Run 3 completed. Best fitness: 80.71
+Run 3 champion fitness: 80.71
+
+--- Starting Final Benchmark of 3 Champions ---
+Benchmark Style: Fixed (vs ['MaxAgentsBot', 'PatronFavorsBot', 'AlwaysFirstOptionBot', 'DecisionTreeBot'] and HoF). Games x5
+Benchmarking Champion from Run 1 (Fixed)...
+  Run 1 Champion Fitness: 86.60
+Benchmarking Champion from Run 2 (Fixed)...
+  Run 2 Champion Fitness: 87.00
+Benchmarking Champion from Run 3 (Fixed)...
+  Run 3 Champion Fitness: 86.80
+
+--- Overall Training Summary ---
+Total session duration: 00:23:13 (1393.46 seconds)
+Best overall benchmark fitness: 87.00
+Best Weights (from benchmark):
+0.00000000,0.21492843,0.81701220,1.00000000,0.76318958,0.67650625,1.00000000,0.12052329,0.99461206,0.11071047,0.15586019,0.01861601,0.50884965,0.28347685,1.00000000,0.40598647,1.00000000,0.51402222,0.83235868,0.52604295,0.58499454,1.00000000,1.00000000,1.00000000,0.16312790,0.98099795
+Saving all 3 champion weights to C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\ScriptsOfTribute-Core\GameRunner\bin\Debug\net8.0\eb_best_weights.txt
+CSV log for this training session is in: C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\evolutionary_bot_trainer\training_data\training_log_20250802_131538_s123_mfixed.csv
+========================================================================
+COMPLETED: Fixed Mode Training HoF 3 at 08/02/2025 13:38:52
+========================================================================
+
+========================================================================
+STARTING TRAINING: Coevolution Mode Training HoF 3 at 08/02/2025 13:38:52
+PARAMETERS: --num_games 100 --num_threads 8 --num_training 3 --max_evaluations 200 --pop_size 10 --intra_run_hof_size 3 --evaluation_mode coevolution
+========================================================================
+
+--- Configuration Summary ---
+   Training Runs: 3
+   Population Size: 10
+   Max Evaluations/Run: 200
+   Number of Weights: 26
+   Mutation Rate: 0.3
+   Crossover Rate: 0.7
+   Threads for Parallelism: 8
+   Master Seed: 123
+   Deterministic Training Runs (Seeded): True
+   Deterministic Matches (Seeded): False
+   Evaluation Mode: coevolution
+   Base Games (Fixed): 100
+   Opponent Bots (Fixed): MaxAgentsBot, PatronFavorsBot, AlwaysFirstOptionBot, DecisionTreeBot
+   Base Games (Coevo): 15
+   Global HoF Size (Inter-Run): 0
+   Intra-Run HoF Size: 3
+     Games vs Each Intra-Run HoF Member: 20
+     Pruning Percentage: 35%
+     Pruning Frequency (Generations): 7
+   Turn Timeout: 5s
+   Weight Precision: 8
+   Match Logs: NONE
+   Debug Mode: False
+---------------------------
+
+Using GameRunner executable at: C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\ScriptsOfTribute-Core\GameRunner\bin\Debug\net8.0\GameRunner.exe
+Master PRNG initialized with seed: 123
+Logging training data to CSV: C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\evolutionary_bot_trainer\training_data\training_log_20250802_133852_s123_mcoevolution.csv
+
+--- Starting Training Run 1/3 with seed: 123 ---
+Starting Training Run 1/3 (HoF size: 0)
+
+Run 1, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+HoF not full. Added new champion (type: offspring, fitness: 88.89). Size: 1
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10     11.96s       3.70      88.89      53.70      50.00      22.31
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20     55.41s      50.49      80.66      56.56      60.49      10.71
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30     51.58s      47.21      79.34      64.43      61.15      10.28
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40     52.48s      51.80      70.82      59.84      61.15       6.41
+HoF not full. Added new champion (type: offspring, fitness: 71.15). Size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50     49.62s      49.51      71.15      56.07      57.57       6.85
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60     52.87s      52.62      62.15      58.31      57.60       3.10
+HoF not full. Added new champion (type: offspring, fitness: 61.23). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70     51.93s      54.77      61.23      56.31      57.29       2.24
+New champion defeated HoF member (fitness 71.15) with a 80.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80     56.77s      55.07      64.35      58.26      58.38       2.63
+Pruning 1 OLDEST members from HoF (Co-evolution strategy).
+Pruned members: id_0 (fit: 88.89, gen: 0). New size: 2
+HoF not full. Added new champion (type: offspring, fitness: 62.46). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90     52.19s      53.23      62.46      54.77      56.18       3.07
+New champion defeated HoF member (fitness 64.35) with a 80.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100     57.65s      53.04      66.67      54.64      56.67       4.43
+New champion defeated HoF member (fitness 61.23) with a 75.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110     59.55s      50.43      63.48      57.39      57.01       4.65
+New champion defeated HoF member (fitness 62.46) with a 70.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120     59.49s      51.01      72.17      55.65      57.19       6.99
+New champion defeated HoF member (fitness 63.48) with a 75.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130     61.54s      50.14      70.72      54.78      56.78       6.41
+New champion defeated HoF member (fitness 66.67) with a 75.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140     58.34s      48.70      64.64      57.97      56.35       5.59
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150     54.83s      52.17      66.67      58.26      58.99       4.18
+Pruning 1 OLDEST members from HoF (Co-evolution strategy).
+Pruned members: id_0 (fit: 72.17, gen: 10). New size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160     52.60s      54.46      66.77      57.54      58.34       3.52
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170     57.96s      56.62      64.00      59.08      59.51       2.50
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180     61.72s      53.54      64.31      57.23      57.78       3.57
+HoF not full. Added new champion (type: offspring, fitness: 64.31). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190     64.70s      54.77      64.31      58.31      58.28       2.63
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200     75.62s      52.46      65.51      59.28      59.51       3.63
+
+Run 1 completed. Best fitness: 65.51
+Run 1 champion fitness: 65.51
+
+--- Starting Training Run 2/3 with seed: 1123 ---
+Starting Training Run 2/3 (HoF size: 0)
+
+Run 2, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+HoF not full. Added new champion (type: offspring, fitness: 77.78). Size: 1
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10     10.74s       0.00      77.78      53.33      50.00      23.76
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20     49.72s      53.77      77.38      68.20      66.95       8.58
+HoF not full. Added new champion (type: parent, fitness: 75.08). Size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30     50.78s      51.80      75.08      58.36      62.10       7.57
+HoF not full. Added new champion (type: offspring, fitness: 74.77). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40     56.34s      50.77      74.77      60.00      59.82       6.47
+New champion defeated HoF member (fitness 77.78) with a 70.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50     60.94s      50.43      67.54      58.26      59.83       6.11
+New champion defeated HoF member (fitness 67.54) with a 65.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60     60.87s      47.25      70.14      60.43      58.38       7.64
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70     59.69s      53.91      68.41      55.80      58.32       4.56
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80     60.27s      50.14      61.45      54.93      54.70       3.76
+Pruning 1 OLDEST members from HoF (Co-evolution strategy).
+Pruned members: id_0 (fit: 75.08, gen: 1). New size: 2
+HoF not full. Added new champion (type: parent, fitness: 64.00). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90     58.92s      53.85      64.00      57.69      58.34       3.35
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100     64.02s      54.20      66.38      58.99      59.62       3.79
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110     62.02s      55.07      64.93      60.87      60.46       3.89
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120     61.89s      55.07      61.16      57.83      57.94       2.29
+New champion defeated HoF member (fitness 74.77) with a 55.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130     62.93s      57.39      63.19      60.29      60.35       1.86
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140     64.92s      53.04      63.77      57.68      57.62       3.39
+New champion did not decisively beat any HoF members. HoF remains unchanged.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150     62.95s      54.49      64.06      58.99      59.36       3.06
+Pruning 1 OLDEST members from HoF (Co-evolution strategy).
+Pruned members: id_0 (fit: 70.14, gen: 4). New size: 2
+HoF not full. Added new champion (type: parent, fitness: 65.85). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160     47.57s      53.54      65.85      57.08      58.34       3.87
+New champion defeated HoF member (fitness 64.00) with a 65.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170     53.93s      57.10      64.93      60.87      60.70       1.99
+New champion defeated HoF member (fitness 64.93) with a 80.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180     54.02s      53.04      62.03      55.65      56.41       2.97
+New champion defeated HoF member (fitness 65.85) with a 65.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190     53.33s      57.97      65.51      61.16      61.19       2.54
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200     53.24s      55.94      64.35      61.16      60.52       2.85
+
+Run 2 completed. Best fitness: 64.35
+Run 2 champion fitness: 64.35
+
+--- Starting Training Run 3/3 with seed: 2123 ---
+Starting Training Run 3/3 (HoF size: 0)
+
+Run 3, Segment 1/1: Mode 'coevolution', Evals: 200, Eval offset: 0, Gen offset: 0
+HoF not full. Added new champion (type: offspring, fitness: 79.26). Size: 1
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         0         10     11.81s      12.59      79.26      54.44      50.00      24.75
+HoF not full. Added new champion (type: offspring, fitness: 86.56). Size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         1         20     51.51s      53.77      86.56      75.25      70.10      10.58
+HoF not full. Added new champion (type: offspring, fitness: 84.62). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         2         30     54.93s      51.08      84.62      61.08      65.54      10.56
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         3         40     59.03s      50.43      75.65      59.57      61.16       7.65
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         4         50     60.39s      53.33      75.36      62.75      62.96       5.98
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         5         60     59.98s      55.36      74.49      59.57      61.83       5.81
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         6         70     57.37s      53.91      68.99      60.29      61.04       4.17
+New champion defeated HoF member (fitness 79.26) with a 75.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         7         80     51.22s      51.01      64.93      58.55      57.88       5.08
+Pruning 1 OLDEST members from HoF (Co-evolution strategy).
+Pruned members: id_0 (fit: 86.56, gen: 0). New size: 2
+HoF not full. Added new champion (type: offspring, fitness: 57.85). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         8         90     44.18s      51.08      57.85      53.69      53.78       2.01
+New champion did not decisively beat any HoF members. HoF remains unchanged.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+         9        100     50.40s      55.65      63.19      58.12      58.38       2.12
+New champion defeated HoF member (fitness 64.93) with a 65.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        10        110     49.43s      53.33      61.45      54.49      55.30       2.43
+New champion did not decisively beat any HoF members. HoF remains unchanged.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        11        120     49.53s      49.57      58.84      52.46      52.96       2.59
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        12        130     50.20s      51.59      61.45      54.20      55.36       3.18
+New champion defeated HoF member (fitness 61.45) with a 55.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        13        140     49.51s      51.59      58.55      55.36      54.81       2.28
+New champion defeated HoF member (fitness 84.62) with a 65.00% win rate.
+Replacing member in HoF.
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        14        150     49.37s      53.04      65.22      55.94      56.49       3.19
+Pruning 1 OLDEST members from HoF (Co-evolution strategy).
+Pruned members: id_0 (fit: 57.85, gen: 7). New size: 2
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        15        160     54.83s      58.46      64.92      59.85      60.37       1.80
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        16        170     57.06s      56.62      61.54      60.00      59.66       1.40
+HoF not full. Added new champion (type: parent, fitness: 62.46). Size: 3
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        17        180     58.15s      56.31      62.46      59.38      59.69       2.06
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        18        190     63.80s      51.30      61.45      57.10      56.55       3.53
+
+Generation Evaluation   Time (s)      Worst       Best     Median    Average    Std Dev
+---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+        19        200     66.45s      55.07      61.45      57.68      57.62       1.75
+
+Run 3 completed. Best fitness: 61.45
+Run 3 champion fitness: 61.45
+
+--- Starting Final Benchmark of 3 Champions ---
+Benchmark Style: Coevolution Tournament (and HoF if active). Games x5
+  Run 1 Champion Fitness: 89.00
+  Run 2 Champion Fitness: 90.00
+  Run 3 Champion Fitness: 46.00
+
+--- Overall Training Summary ---
+Total session duration: 00:54:24 (3264.29 seconds)
+Best overall benchmark fitness: 90.00
+Best Weights (from benchmark):
+0.35379013,0.38682322,0.13375003,0.61463170,0.28533447,0.58770692,0.00000000,0.26673986,0.90266677,0.46353439,0.04944615,0.00000000,0.63687766,0.79109725,0.45814637,0.41989487,0.51059212,0.53950742,0.07385321,0.14878974,0.43789343,0.00000000,0.47748736,0.02583619,0.12409327,0.78006459
+Saving all 3 champion weights to C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\ScriptsOfTribute-Core\GameRunner\bin\Debug\net8.0\eb_best_weights.txt
+CSV log for this training session is in: C:\Users\silve\Desktop\MisCosas\Estudiante\Master_UGR\TFM\SoTAgents\evolutionary_bot_trainer\training_data\training_log_20250802_133852_s123_mcoevolution.csv
+========================================================================
+COMPLETED: Coevolution Mode Training HoF 3 at 08/02/2025 14:33:16
+========================================================================
+
+Training Sequence Summary:
+ - Fixed Mode Training HoF 3: SUCCESS
+ - Coevolution Mode Training HoF 3: SUCCESS
+All training runs completed at 08/02/2025 14:33:16

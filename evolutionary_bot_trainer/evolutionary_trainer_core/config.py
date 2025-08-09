@@ -9,15 +9,17 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import Self
 
+from .utils import generate_config_summary
+
 logger = logging.getLogger(__name__)
 
 # Default configuration values
-DEFAULT_NUM_GAMES = 100
-DEFAULT_NUM_WEIGHTS = 20
-DEFAULT_POP_SIZE = 10
-DEFAULT_NUM_THREADS = 8
-DEFAULT_MAX_EVALUATIONS = 120
-DEFAULT_NUM_TRAINING = 3
+DEFAULT_NUM_GAMES = 200
+DEFAULT_NUM_WEIGHTS = 26
+DEFAULT_POP_SIZE = 50
+DEFAULT_NUM_THREADS = 8 # Actual number of threads: 2n + 1
+DEFAULT_MAX_EVALUATIONS = 15000 # Num of gen: max_evaluations / pop_size
+DEFAULT_NUM_TRAINING = 1
 DEFAULT_DEBUG_MODE = False
 DEFAULT_VERBOSE_MODE = False
 DEFAULT_LOG_LEVEL = "INFO"
@@ -25,20 +27,22 @@ DEFAULT_TRAINING_LOGS = True
 DEFAULT_SEEDED_MATCH = False  # Every match will use the same seed if enabled
 DEFAULT_SEEDED_TRAINING = True
 DEFAULT_SEED = 123
-DEFAULT_TURN_TIMEOUT = 1
+DEFAULT_TURN_TIMEOUT = 5
 DEFAULT_MATCH_LOGS = "NONE"
-DEFAULT_OPPONENT_BOTS = ["PatronFavorsBot", "MaxAgentsBot", "MaxPrestigeBot", "DecisionTreeBot"]
-DEFAULT_EVALUATION_MODE = "hybrid"
+DEFAULT_OPPONENT_BOTS = ["MaxAgentsBot", "PatronFavorsBot", "AlwaysFirstOptionBot", "DecisionTreeBot"]
+DEFAULT_EVALUATION_MODE = "fixed"
 DEFAULT_HYBRID_SCHEDULE = "fixed:0.4,coevolution:0.2,fixed:0.4"
 DEFAULT_COEVO_PAIRING = "round_robin"
-DEFAULT_COEVO_GAMES = 3
+DEFAULT_COEVO_GAMES = 100
 DEFAULT_GLOBAL_HOF_SIZE = 0  # 0 to disable global HoF
 DEFAULT_GLOBAL_HOF_NUM_GAMES = 0
 DEFAULT_WEIGHT_PRECISION = 8
 DEFAULT_INTRA_HOF_SIZE = 3
-DEFAULT_INTRA_HOF_NUM_GAMES = 3
+DEFAULT_INTRA_HOF_NUM_GAMES = 40
 DEFAULT_INTRA_HOF_PRUNING_PERCENTAGE = 0.35
-DEFAULT_INTRA_HOF_PRUNING_FREQUENCY_GENS = 8
+DEFAULT_INTRA_HOF_PRUNING_FREQUENCY_GENS = 15
+DEFAULT_MUTATION_RATE = 0.3
+DEFAULT_CROSSOVER_RATE = 0.7
 
 #! Note: Total matches per generation are MUCH higher in coevolution moden than fixed mode due to round-robin pairing
 
@@ -54,7 +58,7 @@ def parse_hybrid_schedule(schedule_str: Optional[str]) -> List[Tuple[str, float]
 
     try:
         parts = schedule_str.strip().lower().split(",")
-        for part_idx, part in enumerate(parts):
+        for _, part in enumerate(parts):
             if ":" not in part:
                 raise ValueError(f"Segment '{part}' is missing a ':' separator.")
 
@@ -118,6 +122,8 @@ class Config(BaseModel):
     hof_pruning_percentage: float = Field(DEFAULT_INTRA_HOF_PRUNING_PERCENTAGE, ge=0.0, le=1.0)
     hof_pruning_frequency_gens: int = Field(DEFAULT_INTRA_HOF_PRUNING_FREQUENCY_GENS, ge=0)
     hybrid_schedule_parsed: List[Tuple[str, float]] = Field(default_factory=list)
+    mutation_rate: float = Field(DEFAULT_MUTATION_RATE, ge=0.0, le=1.0)
+    crossover_rate: float = Field(DEFAULT_CROSSOVER_RATE, ge=0.0, le=1.0)
 
     @field_validator("match_logs")
     @classmethod
@@ -305,6 +311,12 @@ def get_config_from_args() -> Config:
         default=DEFAULT_INTRA_HOF_NUM_GAMES,
         help=f"Games vs each intra-run HoF member. Default: {DEFAULT_INTRA_HOF_NUM_GAMES}.",
     )
+    parser.add_argument(
+        "--mutation_rate", type=float, default=DEFAULT_MUTATION_RATE, help=f"Probability of mutation (default: {DEFAULT_MUTATION_RATE})"
+    )
+    parser.add_argument(
+        "--crossover_rate", type=float, default=DEFAULT_CROSSOVER_RATE, help=f"Probability of crossover (default: {DEFAULT_CROSSOVER_RATE})"
+    )
 
     args = parser.parse_args()
 
@@ -318,60 +330,11 @@ def get_config_from_args() -> Config:
 
 def log_config_summary(config: Config, main_logger: logging.Logger):
     """Log the configuration summary."""
+    
     main_logger.info("\n--- Configuration Summary ---")
+    summary_lines = generate_config_summary(config)
+    
+    for line in summary_lines:
+        main_logger.info(f"   {line}")
 
-    # Main training parameters
-    main_logger.info(f"  Number of Training Runs: {config.num_training}")
-    main_logger.info(f"  Population Size: {config.pop_size}")
-    main_logger.info(f"  Max Evaluations per Run: {config.max_evaluations}")
-    main_logger.info(f"  Number of Weights: {config.num_weights}")
-
-    # Execution and seeding
-    main_logger.info(f"  Threads for Parallelism: {config.num_threads}")
-    main_logger.info(f"  Master Seed: {config.seed}")
-    main_logger.info(f"  Deterministic Training Runs (Seeded): {config.seeded_training}")
-    main_logger.info(f"  Deterministic Matches (Seeded): {config.seeded_match}")
-
-    # Evaluation mode
-    main_logger.info(f"  Evaluation Mode: {config.evaluation_mode}")
-    if config.evaluation_mode == "hybrid":
-        main_logger.info(f"     Hybrid Schedule: {config.hybrid_schedule_parsed}")
-
-    # Evaluation mode specifics
-    is_fixed_active = config.evaluation_mode == "fixed" or (
-        config.evaluation_mode == "hybrid" and any(s[0] == "fixed" for s in config.hybrid_schedule_parsed)
-    )
-    if is_fixed_active:
-        opponents = ", ".join(config.opponent_bots) if config.opponent_bots else "None"
-        main_logger.info(f"  Fixed Opponent Bots: {opponents}")
-        main_logger.info(f"  Base Games vs Fixed Opponents: {config.num_games}")
-
-    is_coevo_active = config.evaluation_mode == "coevolution" or (
-        config.evaluation_mode == "hybrid" and any(s[0] == "coevolution" for s in config.hybrid_schedule_parsed)
-    )
-    if is_coevo_active:
-        main_logger.info(f"  Coevo Pairing Strategy: {config.coevo_pairing_strategy}")
-        main_logger.info(f"  Base Coevo Games per Pairing: {config.coevo_games_per_pairing}")
-
-    # Hall of fame parameters
-    main_logger.info(f"  Global HoF Size (Inter-Run): {config.hof_size}")
-    if config.hof_size > 0:
-        main_logger.info(f"     Games vs Each Global HoF Member: {config.hof_num_games}")
-
-    main_logger.info(f"  Intra-Run HoF Size: {config.intra_run_hof_size}")
-    if config.intra_run_hof_size > 0:
-        main_logger.info(f"     Games vs Each Intra-Run HoF Member: {config.intra_run_hof_num_games}")
-        main_logger.info(f"     Pruning Percentage: {config.hof_pruning_percentage * 100:.0f}%")
-        main_logger.info(f"     Pruning Frequency (Generations): {config.hof_pruning_frequency_gens}")
-
-    # Game &and logging parameters
-    main_logger.info(f"  Turn Timeout: {config.turn_timeout} seconds")
-    main_logger.info(f"  Match Logs (GameRunner): {config.match_logs}")
-    main_logger.info(f"  Verbose Output (GameRunner): {config.verbose_gamerunner}")
-    main_logger.info(f"  Training Logs Enabled (CSV): {config.training_logs}")
-    main_logger.info(f"  Log Level: {config.log_level}")
-    main_logger.info(f"  Debug Mode (Script): {config.debug}")
-    main_logger.info(f"  Weight Precision: {config.weight_precision}")
-
-    main_logger.info("  Note: Benchmark games often use a multiplier on base game values")
     main_logger.info("---------------------------\n")
