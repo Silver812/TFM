@@ -94,3 +94,20 @@ sudo apt install -y aspnetcore-runtime-8.0
 - Deleted old code and changed old scripts names
 - Cleaned up the trainer code
 - Added a new script to evaluate all the weights on a single experiment
+
+- Unified the weights sharing between InitBot and Play methods on the EvolutionaryBot
+- The bot now only looks for 2 environment variables, the ones previously used in the coevolution mode
+- Optimized evaluation function by storing the values of the current gamestate.
+- Added new weights. These weights are used to adjust the bot's behavior based on how close the game is to ending and also some new heuristics:
+  - W_PRESTIGE_ENDGAME_MULT: Weight for the prestige/power when the game is ending
+  - W_PATRON_ENDGAME_MULT: Weight for the patron interactions when the game is ending
+  - W_POWER_PRESTIGE_INTERACTION: Weight for the relationship between gaining power and the opponent's prestige
+  - UNSPENT_COIN: Penalty for wasting resources at the end of a turn
+  - P_COHESION: Bonus for having cards from the same patron
+  - P_SWING: Bonus for taking an enemy patron, penalty for reusing our own
+- GetBestMove now always uses all the cards before engaging the action evaluation
+- Updated the pruning mechanism of the hall of fame to be based on fitness instead of defeats
+- Updated the intra hall of fame to reuse the matches from the evaluation instead of performing a new match when replacing champions
+- Added a crossover and mutation rate to the evolutionary algorithm. This replaces the current self-adaptation mechanism from inspyred
+- Added an ensemble method that uses the decisions of multiple sets of weights to make a final decision by Borda count. It takes much more time to evaluate and sadly does not seem to improve the winrate. Maybe if each weight is trained against different sets of opponents it could work better.
+- Improved the intra hall of fame replacement mechanism by reusing the data from the evaluation matches instead of using just the fitness of the individuals.
